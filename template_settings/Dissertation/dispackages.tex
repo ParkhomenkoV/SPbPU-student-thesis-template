@@ -1,0 +1,108 @@
+%%% Прикладные пакеты %%% 
+%\usepackage{calc}               % Пакет для расчётов параметров, например длины
+
+%%% Для добавления Стр. над номерами страниц в оглавлении
+%%% http://tex.stackexchange.com/a/306950
+\usepackage{afterpage}
+
+\urlstyle{rm} % links in Times
+
+
+%\makeatletter
+%%расстояние после ToC title до 1ой строчки 
+%%для достижения одинаковых отсупов переопределено формирование базового ToC
+%\renewcommand{\aftertoctitle}{\par\nobreak\vskip1\curtextsize}
+%\makeatother
+
+%https://tex.stackexchange.com/questions/170912/contents-page-in-two-different-languages
+%\makeatletter
+\newcommand\russiantableofcontents{%
+%	\if@twocolumn
+%	\@restonecoltrue\onecolumn
+%	\else
+%	\@restonecolfalse
+%	\fi
+	%  \begin{otherlanguage}{russian}
+	\chapter*{%
+	\normalfont\MakeUppercase{Содержание} %слово <<Содержание>> в стилю chaperLight, по факту убираем \bfseries
+%		    \contentsname
+%		    \@mkboth{\MakeUppercaseСодержание}
+%		            {\MakeUppercaseСодержание}%
+	}%
+%\hrule
+\vspace*{-1\curtextsize} %убрать лишний отступ в таблице
+	\@starttoc{tuc}%
+	%  \end{otherlanguage}
+%	\if@restonecol\twocolumn\fi
+}
+\newcommand{\addtocru}[2]{%
+	\addcontentsline{tuc}{#1}{\protect\numberline{\csname the#1\endcsname}#2}%
+%	\addcontentsline{tuc}{#1}{#2}%
+}
+\newcommand{\addtocruNoProtect}[2]{%
+%	\addcontentsline{tuc}{#1}{\protect\numberline{\csname the#1\endcsname}#2}%
+		\addcontentsline{tuc}{#1}{#2}%
+}
+
+%обеспечение красивого порядка вывода содержаний и названий разделов, подразделов и т.п.
+\newcommand\englishtableofcontents{%
+	%	\if@twocolumn
+	%	\@restonecoltrue\onecolumn
+	%	\else
+	%	\@restonecolfalse
+	%	\fi
+	%  \begin{otherlanguage}{russian}
+	\chapter*{%
+		\normalfont\MakeUppercase{Content} %слово <<Содержание>> в стилю chaperLight, по факту убираем \bfseries
+		%		    \contentsname
+		%		    \@mkboth{\MakeUppercaseСодержание}
+		%		            {\MakeUppercaseСодержание}%
+	}%
+	%\hrule
+	\vspace*{-1\curtextsize} %убрать лишний отступ в таблице
+	\@starttoc{tec}%
+	%  \end{otherlanguage}
+	%	\if@restonecol\twocolumn\fi
+}
+\newcommand{\addtocen}[2]{%
+		\addcontentsline{tec}{#1}{\protect\numberline{\csname the#1\endcsname}#2}%
+%	\addcontentsline{tec}{#1}{#2}%
+}
+\newcommand{\addtocenNoProtect}[2]{%for preface, introduction etc
+%	\addcontentsline{tec}{#1}{\protect\numberline{\csname the#1\endcsname}#2}%
+		\addcontentsline{tec}{#1}{#2}%
+}
+
+
+%стандартный вывод в toc можно использовать, если издание только на английском или русском.
+%переопределена, чтобы обеспечить одинаковые отсупы от названия ToC (toc, tec, tuc) до первой строки
+\renewcommand\tableofcontents{%
+	%	\if@twocolumn
+	%	\@restonecoltrue\onecolumn
+	%	\else
+	%	\@restonecolfalse
+	%	\fi
+	%  \begin{otherlanguage}{russian}
+	\chapter*{%
+		\MakeUppercase{Содержание} %слово <<Содержание>> 
+		%		    \contentsname
+		%		    \@mkboth{\MakeUppercaseСодержание}
+		%		            {\MakeUppercaseСодержание}%
+	}%
+	%\hrule
+%	\vspace*{-0.58\curtextsize} %убрать/добавить отступ от таблицы
+	\@starttoc{toc}%
+	%  \end{otherlanguage}
+	%	\if@restonecol\twocolumn\fi
+}
+\newcommand{\addetoc}[2]{%
+		\addcontentsline{toc}{#1}{\protect\numberline{\csname the#1\endcsname}#2}%
+}
+%\newcommand{\addtocru}[2]{%
+%	\addcontentsline{tuc}{#1}{\protect\numberline{\csname the#1\endcsname}#2}%
+%	%	\addcontentsline{tuc}{#1}{#2}%
+%}
+
+%\makeatother
+
+%http://latex.org/forum/viewtopic.php?t=5438

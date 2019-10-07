@@ -1,0 +1,90 @@
+%%%% Шаблон ВКР <<SPbPU-student-thesis-template>>  %%%%
+%%
+%%	 ЗАДАНИЕ НА ВКР	
+%%
+%%   Создан на основе глубокой переработки шаблона российских кандидатских и докторских диссертаций [1]. 
+%%   
+%%   Полный список различий может быть получен командами git.
+%%   Лист авторов-составителей расположен в README.md файле.
+%%   Подробные инструкции по использованию в [1,2].
+%%   
+%%   <<Стандартная>> компиляция с помощью pdflatex + biber   (2-3 РАЗА)
+%%  
+%%%% Student thesis template <<SPbPU-student-thesis-template>> %%%%
+%%
+%%   STUDENT THESIS TASK
+%%
+%%
+%%   Created on the basis of deepl modifification of the Russian candidate and doctorate thesis template [1]. 
+%%   
+%%   Full list of differences can be achieved by git commands.
+%%   List of template authors can be seen in the README.md file.
+%%   Detailed instructions of usage, see, please in [1,2].
+%%     
+%%   [1] github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template 
+%%   [2] Author_guide_SPBPU-student-thesis-template.pdf
+%%   
+%%   Default compilation with pdflatex + biber   (2-3 TIMES)
+%%  
+\input{template_settings/ch_preamble} % лучше не редактировать / please, keep unmodified
+
+
+%%%% Настройки автора / Author settings
+%% 
+\input{my_folder/my_settings} % добавляем свои команды / update your commands
+
+
+\begin{document} % начало документа
+
+\input{template_settings/common/renames} % Заполнить сведения, 
+										 % в т.ч. ключевые слова и аннотацию.
+
+\setcounter{tskPrint}{1}				 % Выставляем двухстороннюю печать 	
+
+
+\input{my_folder/task}					 % Задание 
+										 % Для сдачи в высшую школу компилируем двухсторонний My_task.tex 
+										 % После подписания задания изменение его содержания и оформления запрещено
+
+
+
+\end{document} % конец документа
+
+
+%%% Удачной защиты ВКР! - Good luck on the thesis defense!
+%%
+%%% Поддержать проект
+%%
+%% Запросы на добавление / изменение просим писать на следующей странице:
+%% https://github.com/ParkhomenkoV/SPbPU-student-thesis-template/issues
+%%
+%% Список пожеланий в файле шаблона <<TO-DO-list.tex>>
+%%
+%% Благодарности просим указывать в виде 
+%%
+%% 1. Добавление <<Звезды>> проекту https://github.com/ParkhomenkoV/SPbPU-student-thesis-template/stargazers
+%%
+%% 2. Добавления <<Сердечка>> и репоста проекта в социальных сетях:
+%%
+%%
+%%
+
+%%% Support project
+%%
+%% Requests on adding / modifications is better to be publishen on the following web-page:
+%% https://github.com/ParkhomenkoV/SPbPU-student-thesis-template/issues
+%%
+%% Wishlist is in the template's file called <<TO-DO-list.tex>>
+%%
+%% Acknowledgements are better to be done in the form of 
+%%
+%% 1. Adding <<Star>> to the project https://github.com/ParkhomenkoV/SPbPU-student-thesis-template/stargazers
+%%
+%% 2. Adding <<Likes>> and Project repost in the social networks:
+%%
+%%
+%% 
+
+% Check list при передаче ВКР:
+% - Количество страниц в Задании 2. Если нет, то комментирование последней строки в my_task.tex
+% - Зачистка всех вспомогательных файлов (Clear auxilary files) и компиляция ВКР не менее 3х раз

@@ -1,0 +1,25 @@
+На \firef{fig:spbpu_whitehall-three-photos} приведены три картинки под~общим номером и~названием, но с раздельной нумерацией подрисунков посредством пакета \verb|subcaption|.
+%
+\begin{figure}[!htbp]
+	\adjustbox{minipage=1.3em,valign=t}{\subcaption{}\label{fig:spbpu_whitehall-a}}%
+	\begin{subfigure}[t]{\dimexpr.3\linewidth-1.3em\relax}
+		\centering
+		\includegraphics[width=.95\linewidth,valign=t]{my_folder/images//spbpu_whitehall}
+	\end{subfigure}
+	\hfill %выровнять
+	\adjustbox{minipage=1.3em,valign=t}{\subcaption{}\label{fig:spbpu_whitehall-b}}%
+	\begin{subfigure}[t]{\dimexpr.3\linewidth-1.3em\relax}
+		\centering
+		\includegraphics[width=.95\linewidth,valign=t]{my_folder/images//spbpu_whitehall_ligh}
+	\end{subfigure}
+	\hfill %выровнять
+		\adjustbox{minipage=1.3em,valign=t}{\subcaption{}\label{fig:spbpu_whitehall-c}}%
+	\begin{subfigure}[t]{\dimexpr.3\linewidth-1.3em\relax}
+		\centering
+		\includegraphics[width=.95\linewidth,valign=t]{my_folder/images//spbpu_whitehall_sculpture}
+	\end{subfigure}%
+\captionsetup{justification=centering} %центрировать
+	\caption{Фотографии Белого зала СПбПУ \cite{spbpu-gallery}, в том числе: {\itshape a} --- со стороны зрителей; {\itshape b} --- со стороны сцены; {\itshape c} --- барельеф}\label{fig:spbpu_whitehall-three-photos}  
+\end{figure}
+
+Далее можно ссылаться на три отдельных рисунка: \firef{fig:spbpu_whitehall-a}, \firef{fig:spbpu_whitehall-b} и \firef{fig:spbpu_whitehall-c}.

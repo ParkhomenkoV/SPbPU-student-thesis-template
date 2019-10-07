@@ -1,0 +1,93 @@
+%%%% Настройки автора 
+%% 
+%% 	 Пожалуйста, ознакомьтесь с функционалом шаблона из [1,2], а также с пакетами, подключенными в ch_preamble.
+%% 
+%%   Новым командам лучше присваивать уникальные имена.
+%% 
+%%%% Author settings
+%% 
+%%   Please, see all possible packages using the search in files of ch_preamble. 
+%%   
+%%   Please, for user-defined commands write only unique command titles.
+%%
+
+
+%%%% Подключение библиографии / Upload bibliography
+%% 
+%% 
+\addbibresource{my_folder/my_biblio.bib} % 
+
+
+
+%%%% Полезные настройки / Usefull settings
+%% 
+%% Раскомментируйте, чтобы
+%%
+%% pdf при открытии выравнивался по окну
+%% pdf fit screen window
+\hypersetup{
+pdfstartview={FitBH}
+}
+%% перенумеровать все строки pdf
+%% enumerate all lines in pdf 
+%\usepackage{lineno}
+%\linenumbers
+%%
+%% установить дату после названия ВКР - расскоментируйте код в title.tex
+%% set data after the thesis title - uncomment code in title.tex
+\let\ordinal\relax %avoid extra warning
+\usepackage{datetime}
+
+
+
+%% In case of deleting the following info, please, delete the examples in the chapter body.
+
+%% В случае комментирования (удаления) следующего кода могут появиться ошибки при компиляции примеров, т.е. необходимо будет удалить и примеры в теле главы.
+
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%http://tex.stackexchange.com/questions/16645/blackboard-italic-font
+% for itallic sign of context K to be a parametr
+\DeclareMathAlphabet{\mathbbmsl}{U}{bbm}{m}{sl}
+\newcommand{\cont}[1][K]{\ensuremath{\mathbbmsl{#1}}}
+
+%%ARROWS
+
+%mu = math unit = 1em
+%\mkern-18mu
+%"minus quad"
+
+%https://tex.stackexchange.com/a/389805/44348
+\newcommand{\fcaarrow}[1]{%
+	{}^{\scriptscriptstyle\bm{#1}}
+}
+%%%%%%%%%%%%%%%%%%%%%%% ARROWS from Formal Concept Analysis
+% small and bold \uparrow
+\newcommand{\uA}{\fcaarrow{{\uparrow\mkern-12mu}}}
+% small and bold \downarrow
+\newcommand{\dA}{\fcaarrow{\downarrow\mkern-2mu}}
+% small and bold \uparrow+\downarrow
+\newcommand{\ud}{\fcaarrow{\uparrow\mkern-12mu}\fcaarrow{\downarrow\mkern-2mu}}
+% small and bold \downarrow+\uparrow
+\newcommand{\du}{\fcaarrow{\downarrow\mkern-2mu}\fcaarrow{\uparrow\mkern-12mu}}
+
+
+%http://tex.stackexchange.com/questions/74125/how-do-i-put-text-over-symbols
+\newcommand\eqdef{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny def}}}{=}}} %\sffamily
+
+
+
+%%% Правила задания нового окружения
+
+\theoremstyle{myplain} % первая команда для ввода доказательств
+\newtheorem{m-new-env-first}{Название\_окружения}[chapter] 
+% вместо m-new-env-first необходимо подставить название нового окружения;
+% вместо Название\_окружения необходимо подставить название окружения, выводящееся в pdf;
+% последний параметр обеспечивает нумерацию в пределах главы не меняется
+
+
+\theoremstyle{mydefinition} % первая команда для ввода окружений, не связанных с доказательствами
+\newtheorem{m-new-env-second}{Название\_окружения}[chapter] 
+% вместо m-new-env-second необходимо подставить название нового окружения;
+% вместо Название\_окружения необходимо подставить название окружения, выводящееся в pdf;
+% последний параметр обеспечивает нумерацию в пределах главы не меняется

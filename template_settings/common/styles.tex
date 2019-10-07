@@ -1,0 +1,302 @@
+%%% Кодировки и шрифты %%%
+\ifxetexorluatex
+    \setmainlanguage[babelshorthands=true]{russian}  % Язык по-умолчанию русский с поддержкой приятных команд пакета babel
+    \setotherlanguage{english}                       % Дополнительный язык = английский (в американской вариации по-умолчанию)
+    \setmonofont{Courier New}
+    \newfontfamily\cyrillicfonttt{Courier New}
+    \ifXeTeX
+        \defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
+    \else
+        \defaultfontfeatures{Ligatures=TeX}
+    \fi
+    \setmainfont{Times New Roman}
+    \newfontfamily\cyrillicfont{Times New Roman}
+    \setsansfont{Arial}
+    \newfontfamily\cyrillicfontsf{Arial}
+\else
+    \IfFileExists{pscyr.sty}{\renewcommand{\rmdefault}{ftm}}{}
+\fi
+
+%%% Подписи %%%
+\captionsetup{%
+singlelinecheck=off,                % Многострочные подписи, например у таблиц
+skip=5pt,                           % Вертикальная отбивка между подписью и содержимым рисунка или таблицы определяется ключом
+justification=centering            % Центрирование подписей, заданных командой \caption
+}
+
+%\setlength{\abovecaptionskip}{0pt} %альтернатива для skip, но не распространяется на longtable!
+%\setlength{\belowcaptionskip}{0pt}
+%\captionwidth{\linewidth}
+%\normalcaptionwidth
+
+% для изменения отступов от floats (e.g. table,figure) & minipage
+\newlength{\mfloatsep}
+\setlength{\mfloatsep}{4mm plus 0.7mm minus 0.7mm} %3mm для A5
+
+% фиксируем расстояния с помощью пакета layouts
+\setlength{\textfloatsep}{\mfloatsep} % расстояние от текста до float, если float прижат к верхнему или нижнему краю
+\setlength{\floatsep}{\mfloatsep} % расстояние от float до float (если оба сверху/снизу)
+\setlength{\intextsep}{\mfloatsep} % расстояние от текста до float, если float снизу и сверху ограничен текстом 
+%
+%% фактически из-за бокса, внутрь которого помещается \captionof{figure} происходит увеличаение на 1мм отступа в соответствующем элементе!
+%
+%% по требованиям СПбПУ как раз необходим отступ 4мм от рисунка
+
+
+%Возможно более гибко задавать отступы, например:
+%\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+%\setlength{\textfloatsep}{20pt plus 2pt minus 4pt}
+%\setlength{\intextsep}{\floatsep}
+
+%https://tex.stackexchange.com/questions/60477/remove-space-after-figure-and-before-text
+%https://tex.stackexchange.com/questions/26521/how-to-change-the-spacing-between-figures-tables-and-text
+
+
+
+
+%%% Парный к \smallA шрифт 13bp в подписи%%%
+%TO-DO как напрямую связать со \smallA
+%\DeclareCaptionFont{font13bp}{\smallA\selectfont} %к сожалению, приводит к отсупу после номера рисунка
+\DeclareCaptionFont{font13bp}{\fontsize{13bp}{16.77bp}\selectfont} %аналог задания вручную
+\DeclareCaptionFont{font12bp}{\small\selectfont} %аналог задания вручную
+
+
+
+%%% Рисунки %%%
+\DeclareCaptionLabelSeparator*{emdash}{~--- }             % (ГОСТ 2.105, 4.3.1)
+
+\DeclareCaptionLabelFormat{figwithoutspace}{#1#2}
+%\captionsetup[figure]{labelformat=figwithoutspace,labelsep=none,name=Fig.}
+
+\captionsetup[figure]{labelformat=figwithoutspace,labelsep=\figlabelsep,position=bottom,labelfont={font12bp},textfont={font12bp}}
+
+%\setlength{\belowcaptionskip}{0pt} %расстояние между 
+%\caption* -- подрисуночной подписи и
+%\caption  -- подписи к рисунку с номером
+%необходимо менять вслед за добавлением \vskip в \captionsetup
+
+%\setfloatadjustment{figure}{%
+%	\setlength{\belowcaptionskip}{-3pt}   % чтобы обивка после рисунков была 3mm, так как caption добавляет около 1мм к 3мм. 
+%}
+
+
+
+
+%%% Таблицы %%%
+\ifnumequal{\value{tabcap}}{0}{%
+    \newcommand{\tabcapalign}{\raggedright}  % по левому краю страницы или аналога parbox
+
+    \DeclareCaptionFormat{tablecaption}{\tabcapalign #1#2#3}
+    \captionsetup[table]{labelsep=emdash}        % тире как разделитель идентификатора с номером от наименования
+}{%
+    \ifnumequal{\value{tablaba}}{0}{%
+        \newcommand{\tabcapalign}{\raggedright}  % по левому краю страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tablaba}}{1}{%
+        \newcommand{\tabcapalign}{\centering}    % по центру страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tablaba}}{2}{%
+        \newcommand{\tabcapalign}{\raggedleft}   % по правому краю страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tabtita}}{0}{%
+        \newcommand{\tabtitalign}{\raggedright}  % по левому краю страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tabtita}}{1}{%
+        \newcommand{\tabtitalign}{\centering}    % по центру страницы или аналога parbox
+    }{}
+
+    \ifnumequal{\value{tabtita}}{2}{%
+        \newcommand{\tabtitalign}{\raggedleft}   % по правому краю страницы или аналога parbox
+    }{}
+
+    \DeclareCaptionFormat{tablecaption}{\tabcapalign #1#2\par %\hline  % Идентификатор таблицы на отдельной строке
+        \tabtitalign{#3}}                                       % Наименование таблицы строкой ниже
+    \captionsetup[table]{labelsep=\tablabelsep}                 % разделитель идентификатора с номером от наименования
+}
+\DeclareCaptionFormat{tablenocaption}{\tabcapalign #1\strut}    % Наименование таблицы отсутствует
+
+\newlength{\ltskip}
+\setlength{\ltskip}{2pt}
+\captionsetup[table]{format=tablecaption,singlelinecheck=off,position=top,labelfont={font12bp},textfont={font12bp}}  % многострочные наименования и прочее
+\DeclareCaptionLabelFormat{continued}{\\[-14pt]Продолжение табл.~\!#2}
+
+
+
+%%% Подписи подрисунков %%%
+\renewcommand{\thesubfigure}{\alph{subfigure}}           % Буквенные номера подрисунков
+\captionsetup[subfigure]{font={font12bp},               % Шрифт подписи названий подрисунков (отличается от основного)
+	labelfont={font12bp},textfont={font12bp},
+    labelformat=brace,                                    % Формат обозначения подрисунка
+    singlelinecheck=off,
+%    position=left,
+    justification=raggedright 							 %выравнивание влево
+%    justification=centering,                              % Выключка подписей (форматирование), один из вариантов            
+}
+
+%%% Подписи подрисунков SPbPU%%%
+% реализован подход по первой ссылке, он позволяет масштабировать количество подрисунков
+%https://tex.stackexchange.com/a/273169/44348
+%https://tex.stackexchange.com/a/225914/44348
+\usepackage[export]{adjustbox}
+
+
+
+%%% Настройки гиперссылок %%%
+\ifLuaTeX
+    \hypersetup{
+        unicode,                % Unicode encoded PDF strings
+    }
+\fi
+
+
+\newcommand{\thesisTitle}{Название выпускной квалификационной работы}
+
+
+\hypersetup{
+    linktocpage=true,           % ссылки с номера страницы в оглавлении, списке таблиц и списке рисунков
+%    linktoc=all,                % both the section and page part are links
+%    pdfpagelabels=false,        % set PDF page labels (true|false)
+    plainpages=false,           % Forces page anchors to be named by the Arabic form  of the page number, rather than the formatted form
+    %colorlinks,                 % ссылки отображаются раскрашенным текстом, а не раскрашенным прямоугольником, вокруг текста
+    citebordercolor={0.287 0.89 0.349}, %(RGB colour) with default {0 1 0}: The colour of the box around citations
+    filebordercolor={0 .5 .5}, % (RGB colour) with default {0 .5 .5}: The colour of the box around links to files
+    linkbordercolor={0.93 0 0}, % (RGB colour) with default {1 0 0}: The colour of the box around normal links
+    menubordercolor={1 0 0}, % (RGB colour) with default {1 0 0}: The colour of the box around Acrobat menu links
+    urlbordercolor={0.313 0.776 0.878}, % (RGB colour) with default {0 1 1}: The colour of the box around links to URLs
+    pdfborder={0 0 1}, % The style of box around links; defaults to a box with lines of 1pt thickness, but the colorlinks option resets it to produce no border.
+%    linkcolor={linkcolor},
+%    citecolor={citecolor},      % цвет ссылок-цитат
+%    urlcolor={urlcolor},        % цвет гиперссылок
+    %hidelinks,                  % Hide links (removing color and border)
+%    pdftitle={\thesisTitle},    % Заголовок pdf-файла
+%    pdfauthor={\AuthorFull},  % Автор
+%    pdfsubject={\thesisSpecialtyNumber\ \thesisSpecialtyTitle},      % Тема
+%    pdfcreator={Создатель},     % Создатель, Приложение
+%    pdfproducer={Производитель},% Производитель, Производитель PDF
+%    pdfkeywords={\keywords},    % Ключевые слова
+    pdflang={eng}, %eng %ru
+    % % bookmarks settings
+    bookmarks=true,
+    bookmarksnumbered=true, % put section numbers
+    bookmarksopen=true, %open when the pdf is opened
+    bookmarksopenlevel=0, %chapter's level is enough to see
+    bookmarksdepth=0 %set the depth of the levels in the pdf navigation bar
+}
+
+% %improve the bookmarksnumbered representation:
+\makeatletter
+\renewcommand{\Hy@numberline}[1]{#1. } %add the dot after a number
+\makeatother
+
+
+\ifnumequal{\value{draft}}{1}{% Черновик
+    \hypersetup{
+        draft,
+    }
+}{}
+
+%%% Шаблон %%%
+\DeclareRobustCommand{\todo}{\textcolor{red}}       % решаем проблему превращения названия цвета в результате \MakeUppercase, http://tex.stackexchange.com/a/187930/79756 , \DeclareRobustCommand protects \todo from expanding inside \MakeUppercase
+\AtBeginDocument{%
+    \setlength{\parindent}{2.5em}                   % Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
+}
+
+%%% Списки %%%
+% Используем короткое тире (endash) для ненумерованных списков (ГОСТ 2.105-95, пункт 4.1.7, требует дефиса, но так лучше смотрится)
+\renewcommand{\labelitemi}{\normalfont\bfseries{--}}
+
+%% Перечисление строчными буквами латинского алфавита (ГОСТ 2.105-95, 4.1.7)
+\renewcommand{\theenumi}{\Alph{enumi}} % первый уровень иерархии %латинскийалфавит заглавные
+\renewcommand{\labelenumi}{\theenumi.} 
+%\renewcommand{\theenumii}{\alph{enumii}} % второй уровень иерархии %латинскийалфавит
+%\renewcommand{\labelenumii}{\theenumii)} 
+%
+%
+%% Перечисление строчными буквами русского алфавита (ГОСТ 2.105-95, 4.1.7)
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}      % Управляем списками/перечислениями через пакет enumitem, а он 'не знает' про asbuk, потому 'учим' его
+\makeatother
+%%\renewcommand{\theenumi}{\asbuk{enumi}} %первый уровень нумерации
+%%\renewcommand{\labelenumi}{\theenumi)} %первый уровень нумерации 
+%%\renewcommand{\theenumii}{\asbuk{enumii}} %второй уровень нумерации
+%%\renewcommand{\labelenumii}{\theenumii)} %второй уровень нумерации 
+\renewcommand{\theenumii}{\arabic{enumii}} %второй уровень нумерации %арабские цифры
+\renewcommand{\labelenumii}{\theenumii.} %второй уровень нумерации 
+%\renewcommand{\theenumi}{\arabic{enumi}} %первый уровень нумерации %арабские цифры
+%\renewcommand{\labelenumi}{\theenumi)} %первый уровень нумерации 
+%
+%\renewcommand{\theenumiii}{\asbuk{enumiii}} %третий уровень нумерации %русский алфавит
+\renewcommand{\theenumiii}{\alph{enumiii}} %третий уровень нумерации %английский алфавит
+\renewcommand{\labelenumiii}{\theenumiii)} %третий уровень нумерации 
+%\renewcommand{\theenumiii}{\arabic{enumiii}} %третий уровень нумерации %арабские цифры
+%\renewcommand{\labelenumiii}{\theenumiii)} %третий уровень нумерации 
+
+
+
+\setlist{nosep,%                                    % Единый стиль для всех списков (пакет enumitem), без дополнительных интервалов.
+    labelindent=\parindent,leftmargin=*%            % Каждый пункт, подпункт и перечисление записывают с абзацного отступа (ГОСТ 2.105-95, 4.1.8)
+}
+
+
+
+% asm packages required! In particular amsthm
+%http://tex.stackexchange.com/questions/37472/spacing-before-and-after-with-newtheoremstyle
+
+%theoremstyle{}
+%plain : italic text, extra space above and below;
+%definition : upright text, extra space above and below;
+%remark : upright text, no extra space above or below.
+
+\newtheoremstyle{myplain} %
+{0} %space above
+{0} %space below
+{\itshape}
+{\parindent}
+{\bfseries}
+{.}
+{.5em}
+{}
+
+\newtheoremstyle{mydefinition} %
+{0} %space above
+{0} %space below
+{}
+{\parindent}
+{\bfseries}
+{.}
+{.5em}
+{}
+
+\theoremstyle{myplain} %improved plain style
+\newtheorem{m-theorem}{Теорема}[chapter] % reset theorem numbering for each chapter
+\newtheorem{m-corollary}{Следствие}[chapter] % definition numbers are 
+\newtheorem{m-proposition}{Утверждение}[chapter] % definition numbers are dependent on theorem numbers
+\newtheorem{m-lemma}{Лемма}[chapter]
+\newtheorem{m-axiom}{Аксиома}[chapter]
+
+\theoremstyle{mydefinition} %improved definition style
+\newtheorem{m-example}{Пример}[chapter] % same for example numbers
+\newtheorem{m-definition}{Определение}[chapter]  % definition numbers
+\newtheorem{m-condition}{Условие}[chapter]
+\newtheorem{m-problem}{Проблема}[chapter]
+\newtheorem{m-exercise}{Упражнение}[chapter]
+\newtheorem{m-question}{Вопрос}[chapter]
+\newtheorem{m-hypothesis}{Гипотеза}[chapter]
+\newtheorem{m-task}{Задание}[chapter]
+
+
+
+%%control skip of thm, plain style - ANOTHER VARIANT
+%%http://tex.stackexchange.com/questions/85400/how-to-change-space-around-theorem-environments
+%\makeatletter
+%\def\thm@space@setup{%
+%	\thm@preskip=0cm %
+%	%	\thm@preskip=0cm plus 0.2cm minus 0.2cm
+%	\thm@postskip=0cm % or whatever, if you don't want them to be equal
+%	%	\thm@postskip=\thm@preskip % or whatever, if you don't want them to be equal
+%}
+%\makeatother

@@ -1,0 +1,100 @@
+% Титульный лист 
+\thispagestyle{empty}%
+%https://tex.stackexchange.com/questions/31705/different-margins-for-title-page
+\makeatletter
+\newgeometry{top=2cm,bottom=2cm,left=2cm,right=2cm,headsep=0cm,footskip=0cm}
+\savegeometry{NoFoot} %save settings
+\makeatother
+%add to pdf navigation menu:
+\pdfbookmark[-2]{Machine learning in analysis of biomedical and socio-economic data}{MLABSED2017}
+%\pdfbookmark[0]{Title page}{tit}
+
+%{\bfseries
+
+%\begin{flushright}%
+%%\fbox{Template\_book1. Version 1.1}
+%\fbox{\normalfont Template\_book1. Версия от \small{ \today  \; время:  \currenttime}}
+%\end{flushright}%
+
+
+\begin{center}%
+Ministry of Education and Science of the Russian Federation \\
+		\noindent\makebox[\linewidth]{\rule{0.33\textwidth}{1.3pt}} % 1/3
+%\noindent\makebox[\linewidth]{\rule{0.1\textwidth}{1.3pt}}  %1/10
+ \uppercase{Peter the Great St.Petersburg Polytechnic University} 
+\noindent\makebox[\linewidth]{\rule{\textwidth}{1.3pt}}
+\end{center}%
+
+%% to print epigraph
+%\setlength\epigraphwidth{\linewidth} %with linewidth
+%\setlength\epigraphrule{0pt} %without hline
+%%%\epigraphsourceposition{flushleft}
+%
+%%\renewcommand{\epigraphflush}{center}
+%\epigraphhead[10]{\epigraph{\url{Template_book1. Version 1.1}}{}}
+%
+
+%
+%\vspace{0pt plus1fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
+%{
+%\begin{flushright}%
+%	\textsl {Editors: Найденова\;К.А., Швецов\;К.В., Пархоменко\;В.А., Яковлев\;А.В.}
+%	\textsl {Редакторы: }
+%\end{flushright}%	
+%\begin{flushright}%
+%%\textsl {UDC }
+%%\textsl {УДК }
+%\end{flushright}%
+%}
+%
+\vspace{0pt plus4fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
+
+%\vspace{0pt plus1fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
+\begin{center}%
+\uppercase{\LARGE  Machine learning \\ in~analysis of~biomedical \\ and~socio-economic data}\\
+
+%{\Huge Машинное обучение в исследованиях медико-биологических и социально-экономических данных}
+\end{center}%
+
+\vspace{0pt plus1fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
+%\begin{center}%
+%	
+%%	{\Huge Machine learning in analysis of biomedical and socio-economic data}\\
+%	\LARGE Машинное обучение в исследованиях медико-биологических и социально-экономических данных
+%\end{center}%
+
+
+\begin{center}
+	Scientific edition
+\end{center}
+
+%
+\vspace{0pt plus4fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
+\begin{center}%
+%	\IfFileExists{images/logo_main_sm_en.png}{
+		%	\begin{minipage}[b]{0.499\linewidth}
+		%		\begin{flushleft}%
+		%\begin{center}
+%		\includegraphics[height=45pt]{logo_main_sm_en.png}
+		\includegraphics[height=0.045\textheight]{logo_main_sm_en.eps}
+%		\includegraphics[height=65pt]{logo_main_sm_en.pdf}
+%		\includegraphics[height=45pt]{logo_main_sm_en.svg}
+		
+		%\end{center}
+		%		\end{flushleft}
+		%	\end{minipage}
+%	}
+	
+	
+	Saint-Petersburg\\	
+	2017
+	
+%Saint-Petersburg\\
+%Publishing house of Peter the Great St.Petersburg Polytechnic University\\
+%2017
+%Санкт-Петербург \\
+%Издательство Политехнического университета \\
+%2017
+\end{center}%
+%} %end bfseries
+\newpage

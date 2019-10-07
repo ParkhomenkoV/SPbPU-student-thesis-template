@@ -1,0 +1,80 @@
+%%%% Начало оформления заголовка - оставить без изменений !!! %%%%
+\input{my_folder/task_settings}	% настройки - начало 
+	
+				{%\normalfont %2020
+						\MakeUppercase{\SPbPU}}\\
+				\institute
+
+\par}\intervalS% завершает input
+
+				\noindent
+				\begin{minipage}{\linewidth}
+				\vspace{\mfloatsep} % интервал 	
+				\begin{tabularx}{\linewidth}{Xl}
+					&УТВЕРЖДАЮ      \\
+					&\HeadTitle     \\			
+					&\underline{\hspace*{0.1\textheight}} \Head     \\
+					&<<\underline{\hspace*{0.05\textheight}}>> \underline{\hspace*{0.1\textheight}} \thesisYear г.  \\  
+				\end{tabularx}
+				\vspace{\mfloatsep} % интервал 	
+				\end{minipage}
+
+\intervalS{\centering\bfseries%
+
+				ЗАДАНИЕ\\
+				%на выполнение %2020 
+				по выполнению
+				выпускной квалификационной работы
+
+
+\intervalS\normalfont%
+
+				студенту \uline{\AuthorFullDat{} гр.\group}
+
+
+\par}\intervalS%
+%%%%
+%%%% Конец оформления заголовка  %%%%
+ 	
+	
+	
+\begin{enumerate}[1.]
+	\item Тема работы: {\expandafter \ulined \thesisTitle.}
+	%\item Тема работы (на английском языке): \uline{\thesisTitleEn.} %2020
+	\item Срок сдачи студентом законченной работы\footnote{Определяется руководителем ОП, но не позднее последнего числа преддипломной практики и/или не позднее, чем за 20 дней до защиты в силу п. 6.1. <<Порядка обеспечения самостоятельности выполнения письменных работ и проверки письменных работ на объем заимствований>>.}: \uline{\thesisDeadline.} 
+	\item Исходные данные по работе\footnote{Текст, который подчёркнут и/или выделен в отдельные элементы нумерационного списка, приведён в качестве примера.}: \uline{статистические данные с сайта \cite{gosstat}, а также из репозитория \cite{uci}; основным источником литературы является монография \cite{Book} и статья \cite{Article}.}%
+	\printbibliographyTask % печать списка источников
+	\item Содержание работы (перечень подлежащих разработке вопросов):
+	\begin{enumerate}[label=\theenumi\arabic*.]
+		\item Обзор литературы по теме ВКР.
+		\item Исследование программных продуктов.
+		\item Разработка метода/алгоритма/программы.
+		\item Апробация разработанного метода/алгоритма/программы. 
+	\end{enumerate}
+	\item Перечень графического материала (с указанием обязательных чертежей): 
+	\begin{enumerate}[label=\theenumi\arabic*.]
+		\item Схема работы метода/алгоритма.
+		\item Архитектура разработанной программы/библиотеки.
+	\end{enumerate}	
+		\item Консультанты по работе:
+		\begin{enumerate}[label=\theenumi\arabic*.]
+		\item Нормоконтроль: \uline{\ConsultantNormDegree, \ConsultantNorm.} % 
+		\item Разработка программы (алгоритма, метода)\footnote{Возможны также формулировки: <<Вопросы программирования/анализа$\ldots$>>, <<Оценка эффективности/быстродействия$\ldots$>> и другие.}: \uline{\ConsultantExtraDegree, \ConsultantExtra.} % закомментировать при необходимости
+		\end{enumerate}
+		\item Дата выдачи задания\footnote{Не позднее 3 месяцев до защиты (утверждение тем ВКР по университету) или первого числа преддипломной практики или по решению руководителя ОП или подразделения (открытый вопрос).}: \uline{\thesisStartDate.}
+\end{enumerate}
+
+
+Руководитель ВКР \uline{\hspace*{0.1\textheight} \Supervisor}
+
+%Консультант по ??? \uline{\hspace*{0.1\textheight}\ConsultantExtra}%2020
+
+%Консультант по нормоконтролю \uline{\hspace*{0.1\textheight} \ConsultantNorm}%2020
+
+Задание принял к исполнению \uline{\thesisStartDate}
+
+Студент \uline{\hspace*{0.1\textheight}  \Author}
+
+
+
+\input{my_folder/task_settings_restore}	% настройки - конец

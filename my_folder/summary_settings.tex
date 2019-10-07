@@ -1,0 +1,13 @@
+\thispagestyle{empty}%
+%\setcounter{sumPageFirst}{\value{page}} %сохранили номер первой страницы Реферата
+\ifnumequal{\value{sumPrint}}{1}{% если двухсторонняя печать Задания, то...
+	\newgeometry{twoside,top=2cm,bottom=2cm,left=3cm,right=1cm,headsep=0cm,footskip=0cm}
+	\savegeometry{MyTask} %save settings
+	\makeatletter % задаём оформление второй страницы ВКР как нечетной, а третьей - как чётной
+	\let\tmp\oddsidemargin
+	\let\oddsidemargin\evensidemargin
+	\let\evensidemargin\tmp
+	\reversemarginpar
+	\makeatother
+}{} % 
+\pagestyle{empty} % удаляем номер страницы на втором/третьем листе

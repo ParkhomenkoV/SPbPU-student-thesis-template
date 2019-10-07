@@ -1,0 +1,19 @@
+%%% Не мянять - Do not modify !
+%%
+%%
+%% Оглавление (ГОСТ Р 7.0.11-2011, 5.2)
+%\ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=false}}{} % не рекомендуется применять пакет микротипографики к автоматически генерируемому оглавлению
+%\tableofcontents*
+%\addtocontents{ptc}{\protect\tocheader}
+%\endTOCtrue
+%\ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=true}}{}
+%https://tex.stackexchange.com/questions/170912/contents-page-in-two-different-languages
+
+
+\setlength{\parskip}{0.35\onelineskip} % интервал между элементов - полуторный
+\begin{Spacing}{\Single} %интервал внутри элемента - одинарный
+\tableofcontents
+ \end{Spacing}
+\setlength{\parskip}{0pt} % интервал между элементов - полуторный
+\OnehalfSpacing*    % Полуторный интервал % * to force it in the floats
+\newpage

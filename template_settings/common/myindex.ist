@@ -1,0 +1,45 @@
+% MakeIndex style file  memman.ist
+
+% @ is a valid character in some entries
+actual '?' % ? instead of @
+
+% output main entry <entry> as: \item \idxmark{<entry>}, 
+%item_0  "\n\\item \\idxmark{"
+%delim_0 "}, "
+% not forgetting the subitem case%    added 2008
+%item_x1 "} \n \\subitem "
+
+		% подробное описание в документаци memoir p.348
+		%item_0 "\%\n"
+		%item_1 "\%\n"
+
+
+item_1 "\\nopagebreak\n \\subitem ---~" %тире перед пунктами 1 уровня
+item_2 "\\nopagebreak\n \\subsubitem ---~" %тире перед первым пунктом 2 уровня
+
+
+%%item_01 "\\nopagebreak\n \\subitem " 
+%%item_12 "\\nopagebreak\n \\subsubitem "
+
+
+item_x1 "\\nopagebreak\n \\subitem ---~" %тире перед пунктами 1 уровня, когда на 0 нет страниц
+item_x2 "\\nopagebreak\n \\subsubitem ---~" %тире перед пунктами 2 уровня, когда на 1 нет страниц 
+
+%для переноса слов без pagebreak or newline
+delim_0 ",~"
+delim_n ",~"
+delim_1 ",~"
+
+%line_max "220" 
+%indent_space " "
+%indent_length "30"
+
+% Wrap and uppercase head letters
+%headings_flag 1 
+%heading_prefix "\\doidxbookmark{"
+%heading_suffix "}
+
+%пример настройки
+%https://tex.stackexchange.com/q/303616/44348
+%https://tex.stackexchange.com/a/199841/44348
+%https://tex.stackexchange.com/q/472/44348

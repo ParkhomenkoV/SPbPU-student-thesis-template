@@ -1,0 +1,62 @@
+%% Не менять - Do not modify
+%%\input{my_folder/summary_settings} 
+\chapter*[Count-me]{Реферат} % * - не нумеруем
+\thispagestyle{empty}% удаляем параметры страницы
+%\setcounter{sumPageFirst}{\value{page}}
+%sumPageFirst \arabic{sumPageFirst}
+%
+%
+%% Возможность проверить другие значения счетчиков - debugging
+%\ref*{TotPages}~с.,
+%\formbytotal{mytotalfigures}{рисун}{ок}{ка}{ков},
+%\formbytotal{mytotaltables}{таблиц}{у}{ы}{},
+%There are \TotalValue{mytotalfigures} figures in this document
+%There are \TotalValue{mytotalfiguresInApp} figuresINAPP in this document
+%There are \TotalValue{mytotaltables} tables in this document
+%There are \TotalValue{mytotaltablesInApp} figuresINAPP in this document
+%There are \TotalValue{myappendices} appendix chapters in this document
+%\total{citenum}~библ. наименований.
+
+
+
+%% Для того, чтобы значения счетчиков корректно отобразились, необходимо скомпилировать файл 2-3 раза
+\total{mypages}~c.,  
+\formbytotal{myfigures}{рисун}{ок}{ка}{ков},
+\formbytotal{mytables}{таблиц}{у}{ы}{},
+\formbytotal{myappendices}{приложен}{ие}{ия}{ий}.  
+
+
+{\noindent\MakeUppercase{\keywordsRu}}\footnote{Всего \textbf{слов}: от 3 до 15. Всего \textbf{слов и словосочетаний}: от 3 до 5. Оформляются в именительном падеже множественного числа (или в единственном числе, если нет другой формы), оформленных по правилам русского языка.} % Ключевые слова из renames.tex
+
+\abstractRu\footnote{До 600 печатных знаков (ГОСТ Р 7.0.99-2018 СИБИД) на русский или английский текст. Текст реферата повторён дважды на русском и английском языке для демонстрации подхода к нумерации страниц. \textit{Внимание! Эта сноска размещена после точки. Это пример как не нужно оформлять сноску.}} % Аннотация из renames.tex
+
+\abstractRu % УДАЛИТЬ. Повтор иллюстрации переноса текста на вторую страницу
+
+
+
+\printTheAbstract % не удалять
+
+
+\total{mypages}~p., 
+\total{myfigures}~figures, 
+\total{mytables}~tables,
+\total{myappendices}~appendices.
+
+
+{\noindent\MakeUppercase{\keywordsEn}} % Ключевые слова из renames.tex 
+	
+\abstractEn % Аннотация из renames.tex
+
+\abstractEn % УДАЛИТЬ. Повтор для иллюстрации переноса текста на вторую страницу
+	
+
+
+%% Не менять - Do not modify
+\thispagestyle{empty}
+%\setcounter{sumPageLast}{\value{page}} %сохранили номер последней страницы Задания
+%\setcounter{sumPages}{\value{sumPageLast}-\value{sumPageFirst}}
+%sumPageLast \arabic{sumPageLast}
+%
+%sumPages \arabic{sumPages}
+%\restoregeometry % восстанавливаем настройки страницы
+%\input{my_folder/summary_settings_restore}	% настройки - конец

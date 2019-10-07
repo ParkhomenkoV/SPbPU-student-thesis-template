@@ -1,0 +1,53 @@
+	\begin{algorithm} %[h]
+		\SetKwFunction{algoDTestsFDSCALING}{} 
+		\SetKwProg{myalg}{Algorithm}{}{} %write in 2nd agrument <<Algorithm>>, <<Procedure>> etc
+		\nonl\myalg{\algoDTestsFDSCALING}{
+			\KwInput{the many-valued context $\cont[M]\eqdef(G,M,W,J)$, the class membership $\epsilon: G\to K$} 
+			\KwOutput{positive and negative binary contexts $\overbar{\cont[K]_+}\eqdef(\overbar{G_+},M,I_+)$, $\overbar{\cont[K]_-}\eqdef(\overbar{G_-},M,I_-)$ such that i-tests found in $\overbar{\cont[K]_+}$ are diagnostic tests in $\cont[M]$, and objects from $\overbar{\cont[K]_-}$ are counter-examples} %последние строки формируют начальное множество диагностических тестов
+			\For {$\forall g_i,$ $g_j \in G$\label{step:FD-scaling-first-step}}{
+				%(\tcp*[f]{possible inlined comment})
+				\If{$i < j$ }{
+					$\overbar{G} \leftarrow (g_i,g_j)$\;
+				}
+			}
+			%		$M\leftarrow M\setminus k$\;
+			\For {$\forall (g_i,g_j)\in \overbar{G}$}{
+				%(\tcp*[f]{possible inlined comment})
+				\If{$m(g_i) = m(g_j)$ }{ %на самом деле здесь цикл по всем компонентам вектора-строки
+					$(g_i,g_j) I m$\; % or setI() function
+				}
+				\uIf{$\epsilon(g_i) = \epsilon(g_j)$ }{
+					$\overbar{G_+} \leftarrow (g_i,g_j)$\;
+				}
+				\lElse{$\overbar{G_-} \leftarrow (g_i,g_j)$\label{FD-scaling-step-last}}	
+			}		
+			$I_+= I\cap (\overbar{G_+}\times M)$, $I_-= I\cap (\overbar{G_-}\times M)$\label{FD-scaling-step-newK}\; 
+			\For {$\forall \overbar{g_+}\in \overbar{G_+}$, $\forall \overbar{g_-}\in \overbar{G_-}$ }{
+				\If{$\overbar{g_+}\uA \subseteq \overbar{g_-}\uA$ }{
+					$\overbar{G_+} \leftarrow \overbar{G_+} \setminus \overbar{g_+}$\;
+				}
+			}
+			%		\Return \;
+		}
+		\caption{Псевдокод алгоритма \texttt{DiagnosticTestsScalingAndInferring} \cite{Naidenova2017}}\label{alg:AlgoFDSCALING}
+		% example of adding an item to Index
+		% \index for accepted papers only
+		\index[ru]{алгоритм!\texttt{название\_алгоритма}} 
+		% key words <<алгоритм>> и <<algorithm>> keep unmodified
+		\index[en]{algorithm!\texttt{algorighm\_title}}
+		% authors can used the key word <<процедура>> (procedure) и т.п.
+		%
+		%
+	    % another example:
+		\index[ru]{алгоритм!\texttt{DiagnosticTestsScaling\-AndInferring}} %нужен ручной перенос \- из-за ошибки в MakeIndex для команды \texttt
+		%ключевые слова <<алгоритм>> и <<algorithm>> не менять
+		\index[en]{algorithm!\texttt{DiagnosticTestsScaling\-AndInferring}} %нужен ручной перенос \- из-за ошибки в MakeIndex для команды \texttt
+	\end{algorithm} 
+	
+	% another example of adding an arbitrary keyword to Index
+	% some useful keywords: theorem, proposition, lemma, equation etc
+	% please, use short keywords (2-3 max)
+	\index[ru]{длинное-название-возможное-например-на-немецком} % длинные названия первого уровня как правило запрещены
+	\index[en]{long-title-possible-for-example-in-German} 
+	
+Обратим внимание, что можно сослаться на строчку \ref{step:FD-scaling-first-step} псевдокода из \firef{alg:AlgoFDSCALING}. 

@@ -1,0 +1,636 @@
+%%% Изображения %%%
+\graphicspath{{images/}{Dissertation/images/}}         % Пути к изображениям
+
+%%% Макет страницы %%%
+% Выставляем значения полей (ГОСТ 7.0.11-2011, 5.3.7)
+\makeatletter
+\geometry{a4paper,top=2cm,bottom=2cm,left=3cm,right=1cm,
+	headsep=0.5cm, %отступ от колонтитула от живописного поля
+	head=1cm, %верхняя граница колонтитула
+	headheight=1cm,
+	nofoot,
+%includefoot,
+	nomarginpar
+%	,showframe
+} 
+%\setlength{\topskip}{0pt}   %размер дополнительного верхнего поля
+\makeatother
+
+%%% Интервалы %%%
+%% По ГОСТ Р 7.0.11-2011, пункту 5.3.6 требуется полуторный интервал
+%% Реализация средствами класса (на основе setspace) ближе к типографской классике.
+%% И правит сразу и в таблицах (если со звёздочкой) 
+%\DoubleSpacing*     % Двойной интервал
+\OnehalfSpacing*    % Полуторный интервал % * to force it in the floats
+%\setSpacing{1.42}   % Полуторный интервал, подобный Ворду (возможно, стоит включать вместе с предыдущей строкой)
+
+%https://tex.stackexchange.com/questions/65849/confusion-onehalfspacing-vs-spacing-vs-word-vs-the-world/276516#276516
+%https://tex.stackexchange.com/questions/13742/what-does-double-spacing-mean
+%https://tex.stackexchange.com/questions/30073/why-is-the-linespread-factor-as-it-is/30114#30114
+
+%A possible definition of \onehalfspacing and \doublespacing is that the ratio between font size and \baselineskip should be 1.5 resp. 2.....
+%\baselineskip (vertical skip between the base lines of two successive lines of type) of XXpt. 
+
+
+%%% Выравнивание и переносы %%%
+%% http://tex.stackexchange.com/questions/241343/what-is-the-meaning-of-fussy-sloppy-emergencystretch-tolerance-hbadness
+%% http://www.latex-community.org/forum/viewtopic.php?p=70342#p70342
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em % В случае проблем регулировать в первую очередь
+\hfuzz 0.3pt
+\vfuzz \hfuzz
+%\raggedbottom
+%\sloppy                 % Избавляемся от переполнений
+\clubpenalty=10000      % Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000     % Запрещаем разрыв страницы после последней строки абзаца
+
+%%% Блок управления параметрами для выравнивания заголовков в тексте %%%
+\newlength{\otstuplen}
+\setlength{\otstuplen}{\theotstup\parindent}
+\ifnumequal{\value{headingalign}}{0}{% выравнивание заголовков в тексте
+    \newcommand{\hdngalign}{\centering}                % по центру
+    \newcommand{\hdngaligni}{}% по центру
+    \setlength{\otstuplen}{0pt}
+}{%
+    \newcommand{\hdngalign}{}                 % по левому краю
+    \newcommand{\hdngaligni}{\hspace{\otstuplen}}      % по левому краю
+} % В обоих случаях вроде бы без переноса, как и надо (ГОСТ Р 7.0.11-2011, 5.3.5)
+
+
+
+
+
+
+
+%%% Оглавление %%%
+
+\renewcommand{\cftchapterdotsep}{\cftdotsep}                % отбивка точками до номера страницы начала главы/раздела
+
+
+
+%% снятие жирности %%
+%\cftKleader defines the leader between the title and the page number; it can be
+%changed by \renewcommand. The spacing between any dots in the leader is controlled
+%by \cftKdotsep
+\makeatletter
+\renewcommand{\cftchapterpagefont}{\normalfont}        % нежирные номера страниц у глав в оглавлении
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}% нежирные точки до номеров страниц у глав в оглавлении
+\renewcommand{\cftchapterfont}{}                       % нежирные названия глав в оглавлении
+\renewcommand{\cftchapterpagefont}{}                       % нежирные названия номеров глав в оглавлении
+\makeatother
+
+
+%% Форматирование SPbPU %%
+% Варианты форматирования
+%https://tex.stackexchange.com/questions/394227/memoir-toc-indent-the-second-line-by-numberspace-width-in-the-previous-line-or
+
+
+
+%% работа с расстояниями между точками, переносами слов
+\makeatletter
+\renewcommand{\cftdotsep}{0.1}
+%\renewcommand{\@dotset}{0.1} %old macro DOES NOT WORK
+\setpnumwidth{2.84538em} %2.84538em = 1cm  
+%\renewcommand{\@pnumwidth}{0em} %old macro
+%%\setrmarg > \setpnumwidth !!!
+\setrmarg{2.84539em}
+%set large number to restrict hyphenation
+%plus1fil makes the distance between the words smaller!
+%it helps to make the equal indent
+\makeatother
+
+%\usepackage{tocloft}    % tocloft for table of contents style
+
+%% отступы %%
+\makeatletter
+\renewcommand{\cftchapterbreak}{}        % set a page break before rather than after the entry
+%\renewcommand{\cftparskip}{10em} % эта настройка не работает, вместо неё изменен \parskip непостредственно перед \tableofcontents
+\setlength{\cftbeforechapterskip}{0pt plus 0pt} %delete skip after chapter block (last section) %%%<-SPbPU pure
+\setlength{\cftbeforepartskip}{0pt plus 0pt} %delete skip after chapter block (last section) %%%<-SPbPU pure
+\makeatother
+
+
+
+%% Продолжение редактирования оглавления настройками CandDoctDiss %%		
+
+
+\ifnumgreater{\value{headingdelim}}{0}{%
+	%<- SPbPU точка после номера страницы
+	\renewcommand\cftchapteraftersnum{.\space}       % добавляет точку с пробелом после номера раздела в оглавлении
+	%\renewcommand\cftchapteraftersnumb{\enspace\textperiodcentered\enspace} %\enspace - настоящий пробел, \space не работает
+	%\renewcommand\chapternumberlinebox[2]{#2}
+}{}
+\ifnumgreater{\value{headingdelim}}{1}{%%%<-SPbPU 
+	%	   	\renewcommand\cftsectionpresnum{..}       % добавляет smth перед number %выравнивает в box
+	% точка после номера страницы
+	\renewcommand\cftsectionaftersnum{.\space}       % добавляет точку с пробелом после номера подраздела в оглавлении
+	% last is \hfil !
+	%   	\renewcommand\cftsectionaftersnumb{...}       % добавляет точки перед названием %можно удалить пробел
+	\renewcommand\cftsubsectionaftersnum{.\space}    % добавляет точку с пробелом после номера подподраздела в оглавлении
+	\renewcommand\cftsubsubsectionaftersnum{.\space} % добавляет точку с пробелом после номера подподподраздела в оглавлении
+	\AtBeginDocument{% без этого polyglossia сама всё переопределяет
+		\setsecnumformat{\csname the#1\endcsname.\space}
+		%\setsecnumformat{\csname the#1\endcsname:\quad}
+	}
+}{%
+	\AtBeginDocument{% без этого polyglossia сама всё переопределяет
+		\setsecnumformat{\csname the#1\endcsname\quad} %
+	}
+}
+
+\renewcommand*{\cftappendixname}{\appendixname\space} % Слово Приложение в оглавлении
+
+
+%%% Различные варианты форматирования SPbPU %%%
+
+%% форматирование отсупов до номеров страниц стр. 151 мемуара !!!
+%\renewcommand*{\cftsectionnumwidth}{} %выставление абсолютного значения
+%\addtolength{\cftsectionnumwidth}{5em} %не работает
+
+%убираем фиксированные размеры of the box %%%<-SPbPU pure
+\AtBeginDocument{%
+\renewcommand\numberlinebox[2]{#2} % for sections %%%<-SPbPU pure
+\renewcommand\chapternumberlinebox[2]{#2} % for chapters 
+%\newcommand\chapternumberlinebox[2]{%
+%	\hb@xt@#1{#2\hfil}}
+%
+%\newcommand\chapternumberlinebox[2]{%
+%	#1{\hfil#2}}
+
+%\numberlinebox{hlengthi}{hcodei} %выставление абсолютного значения
+%\chapternumberlinebox{hlengthi}{hcodei} %выставление абсолютного значения
+}
+
+%убираем растояния до \cftsectionpresnum в размере одного абзацного отступа %%%<-SPbPU pure
+%\cftsetindents{hkindi}{hindenti}{hnumwidthi}
+
+
+%https://tex.stackexchange.com/questions/306851/multiline-unnumbered-chapter-in-table-of-contents
+%https://tex.stackexchange.com/questions/40022/customized-table-of-contents-same-indentation-for-every-line-of-multi-line-titl
+%\parindent % standart padding
+% это здорово экономит место, но нужно тогда синхронизировать стиль обычных отступов в перечислениях
+% недостаток - не видно выравнивания по первому слову в названии предыдущего раздела
+\AtBeginDocument{
+	\cftsetindents{chapter}{0pt}{% первая строка
+		-0.05em} % последующие строки от первой
+	\cftsetindents{section}{%
+		0pt
+%3.5ex plus 1ex minus .2ex
+	}{%
+		\parindent
+%2.3ex plus .2ex
+}
+	\cftsetindents{subsection}{%
+	0pt}{% 
+		\parindent}
+	\cftsetindents{subsubsection}{%
+		0pt}{% 
+		\parindent}
+}
+
+
+
+%%% Колонтитулы %%%
+% Порядковый номер страницы печатают на середине верхнего поля страницы (ГОСТ Р 7.0.11-2011, 5.3.8)
+%сделаем справа внизу
+%\makeatletter
+\makeevenhead{plain}{}{}{\thepage}
+\makeoddhead{plain}{}{}{\thepage}
+\makeevenfoot{plain}{}{}{}
+\makeoddfoot{plain}{}{}{}
+\pagestyle{plain}
+
+%%% добавить Стр. над номерами страниц в оглавлении
+%%% http://tex.stackexchange.com/a/306950
+\newif\ifendTOC
+%
+\newcommand*{\tocheader}{
+%\ifnumequal{\value{pgnum}}{1}{%
+%    \ifendTOC\else\hbox to \linewidth%
+%      {\noindent{}~\hfill{Pages}}\par%
+%      \ifnumless{\value{page}}{3}{}{%
+%        \vspace{0.5\onelineskip}
+%      }
+%      \afterpage{\tocheader}
+%    \fi%
+%}{}%
+}%
+
+
+%epigraph with DOI
+%\usepackage{quotchap}
+
+
+
+
+%%% SPbPU %%% Оформление заголовков глав, разделов, подразделов %%%
+
+\newcommand{\printTheAbstract}{%распечатать the Abstract
+	\begingroup
+	\par
+	\renewcommand{\cleardoublepage}{}
+	\renewcommand{\clearpage}{}
+	\vspace{\theintvl\curtextsize}
+	\chapter*{Abstract}
+	\endgroup %after chapter in case of inline using
+	\thispagestyle{empty}%
+}
+
+
+\makechapterstyle{SPbPUstyle}{%
+	\chapterstyle{default}
+	\setlength{\beforechapskip}{0pt}
+	\setlength{\midchapskip}{0pt} 
+	\setlength{\afterchapskip}{\intvlS\curtextsize}
+	\renewcommand*{\chapnamefont}{\normalfont\bfseries\MakeTextUppercase} %не используется слово <<Глава>>
+	\renewcommand*{\chapnumfont}{\normalfont\bfseries\MakeTextUppercase}
+%	\renewcommand*{\chaptitlefont}{\normalfont\bfseries\MakeTextUppercase} %не работает \MakeTextUppercase
+	\renewcommand\printchaptertitle{\normalfont\bfseries\MakeTextUppercase}% аналог \chaptitlefont
+	\renewcommand*{\chapterheadstart}{}
+	\ifnumgreater{\value{headingdelim}}{0}{%
+		\renewcommand*{\afterchapternum}{.\space}   % добавляет точку с пробелом после номера раздела
+	}{%
+		\renewcommand*{\afterchapternum}{.\quad}     % добавляет точку и \space (\quad) после номера раздела
+	} % настройки добавление в СОДЕРЖАНИЕ (по умолчанию название раздела переходит само)
+	\renewcommand*{\printchapternum}{\hdngaligni\hdngalign\chapnumfont \thechapter}
+	\renewcommand*{\printchaptername}{}
+	\renewcommand*{\printchapternonum}{\hdngaligni\hdngalign}
+	}
+\newcommand{\chapterLight}{\normalfont\MakeTextUppercase\normalsize} %не менять последовательность команд!
+\renewcommand*{\printtoctitle}[1]{\normalfont\MakeTextUppercase #1} %слово <<Content>> в стилю chaperLight, по факту убираем \bfseries
+%\chapterLight не действует в этой команде
+\makeatletter
+
+
+\makechapterstyle{SPbPUstylechapname}{% для <<будет вписано слово Глава перед каждым номером раздела в оглавлении>>
+	\chapterstyle{SPbPUstyle}
+	\renewcommand*{\printchapternum}{\chapnumfont \thechapter}
+	\renewcommand*{\printchaptername}{\hdngaligni\hdngalign\chapnamefont \@chapapp} %
+
+}
+\makeatother
+
+\chapterstyle{SPbPUstyle}
+
+%% удалить перенос на новую строку перед командой \chapter
+\newcommand{\delnewpagebeforech}{
+	%\begingroup
+	\renewcommand{\cleardoublepage}{}
+	\renewcommand{\clearpage}{}
+	\vspace{\theintvl\curtextsize}
+	%\endgroup %after chapter in case of inline using
+}
+
+%% Оформление шрифтов и отсупов подразделов, подподразделов и подподподразделов
+
+\makeatletter
+\setsecheadstyle{\normalfont\bfseries\hdngalign}
+\setsecindent{\otstuplen} %отступ от левого края живописного поля
+\setbeforesecskip{\intvlS\curtextsize} %базовые настройки с плюс/минус точностью, что позволяет более гибко располагать рисунки и изображения на странице
+\setaftersecskip{\intvlS\curtextsize}
+
+
+\setsubsecheadstyle{\normalfont\bfseries\itshape\hdngalign}
+\setsubsecindent{\otstuplen}
+\setbeforesubsecskip{1\curtextsize}
+\setaftersubsecskip{1\curtextsize}
+
+\setsubsubsecheadstyle{\normalfont\itshape\hdngalign}
+\setsubsubsecindent{\otstuplen}
+\setbeforesubsubsecskip{1\curtextsize}
+\setaftersubsubsecskip{1\curtextsize}
+
+%ОLD  ГИА
+%\setsubsecheadstyle{\normalfont\hdngalign}
+%\setsubsecindent{\otstuplen}
+%\setbeforesubsecskip{\intvlS\curtextsize}
+%\setaftersubsecskip{\intvlS\curtextsize}
+%
+%\setsubsubsecheadstyle{\normalfont\hdngalign}
+%\setsubsubsecindent{\otstuplen}
+%\setbeforesubsubsecskip{\intvlS\curtextsize}
+%\setaftersubsubsecskip{\intvlS\curtextsize}
+\makeatother
+
+%попытки форматирования \part можно продолжить
+%сейчас реализован более простой вариант
+\renewcommand{\partnamefont}{\LARGE\MakeTextUppercase}
+\renewcommand{\partnumfont}{\LARGE\MakeTextUppercase}
+\renewcommand*{\parttitlefont}{\LARGE\MakeTextUppercase}
+
+%[section], чтобы заставить все floats быть до расположиться до окончания подраздела
+%\FloatBarrier локальное ограничение, чтобы 
+% расставить повсеместно по разделам, то всего лишь подключить [section];
+% разрешить до \FloatBarrier размещать foats, то добавить окцию  [above].
+\usepackage[above]{placeins} 
+
+\sethangfrom{\noindent #1} %все заголовки подразделов центрируются с учетом номера, как block 
+
+\ifnumequal{\value{chapstyle}}{1}{%
+    \chapterstyle{SPbPUstylechapname}
+    \renewcommand*{\cftchaptername}{Глава\space} % будет вписано слово Глава перед каждым номером раздела в оглавлении
+}{}% вместо Chapter \chaptername
+
+%%% Интервалы между заголовками
+%\setbeforesecskip{\theintvl\curtextsize}% Заголовки отделяют от текста сверху и снизу тремя интервалами (ГОСТ Р 7.0.11-2011, 5.3.5).
+%\setaftersecskip{\theintvl\curtextsize}
+%\setbeforesubsecskip{\theintvl\curtextsize}
+%\setaftersubsecskip{\theintvl\curtextsize}
+%\setbeforesubsubsecskip{\theintvl\curtextsize}
+%\setaftersubsubsecskip{\theintvl\curtextsize}
+
+
+%%% Блок дополнительного управления размерами заголовков
+\ifnumequal{\value{headingsize}}{1}{% Пропорциональные заголовки и базовый шрифт 14 пт
+	\renewcommand{\normalfont}{\large\bfseries}
+	\renewcommand*{\chapnamefont}{\Large\bfseries}
+	\renewcommand*{\chapnumfont}{\Large\bfseries}
+	\renewcommand*{\chaptitlefont}{\Large\bfseries}
+}{}
+
+
+
+
+% ОФОРМЛЕНИЕ Приложений Appendix - Вариант 2 - действующий
+%https://stackoverflow.com/questions/717316/how-to-make-appendix-appear-in-toc-in-latex
+\makeatletter
+\newcommand\appendix@chapter[1]{%
+	\renewcommand*{\chapnamefont}{\normalfont\normalsize\bfseries} %не используется слово <<Глава>>
+	\renewcommand*{\chapnumfont}{\normalfont\normalsize\bfseries}
+	\renewcommand\printchaptertitle{\normalfont\normalsize\bfseries}
+	\renewcommand*{\printchapternum}{\chapnumfont \thechapter}
+	\renewcommand*{\printchaptername}{\hdngaligni\hdngalign\chapnamefont \@chapapp} %
+	\renewcommand*\thechapter{\arabic{chapter}} % работает
+	\settocdepth{chapter} % выводить только названия Приложений
+	\refstepcounter{chapter}%
+	\def\app@ct{\hfill{}\appendixname{} {}\@arabic\c@chapter %
+%	\vspace{\intvlS\curtextsize}
+	\newline #1
+	\vspace{\curtextsize}
+}
+	\orig@chapter*{\app@ct}%
+	\addcontentsline{toc}{chapter}{\appendixname{} \@arabic\c@chapter. #1}%\app@ct % input to TOC-table
+}
+\let\orig@chapter\chapter
+\g@addto@macro\appendix{\newpage\let\chapter\appendix@chapter\renewcommand*{\afterchapternum}{\par\nobreak\vskip \midchapskip}}
+\makeatother
+
+
+%https://tex.stackexchange.com/questions/250834/dont-break-page-for-new-chapter-unless-chapter-heading-wont-fully-fit-on-curre
+\newcommand{\ContinueChapterBegin}{%
+\let\clearpage\relax
+\renewcommand*{\chapterheadstart}{%
+	\FloatBarrier % make floats stop
+\par
+\ifartopt % если сверху сраницы, то
+% ничего не делать
+\else % в противном случае
+\vspace{\theintvl\curtextsize} % добавить интервал
+\fi
+}
+}%
+
+\newcommand{\ContinueChapterEnd}{%
+	\let\clearpage\newpage
+\renewcommand*{\chapterheadstart}{% ничего не делаем
+\FloatBarrier % make floats stop
+}
+}%
+
+\newcommand{\NewPage}{% в случае, если на последней странице приложения есть <<висячая>> таблица или рисунок
+\newpage\leavevmode\thispagestyle{empty}\newpage %начать новое приложение с новой страницы 
+}%
+
+
+
+
+\makeatletter %настройка отображения floates
+\setlength{\@fptop}{0pt}%отключить вертикальное центрирование рисунка/таблицы на странице
+%\setlength{\@fpsep}{8pt}%отключить вертикальное центрирование рисунка/таблицы на странице
+%\setlength{\@fpbot}{0pt plus 1fil}%отключить вертикальное центрирование рисунка на странице
+\makeatother
+
+
+
+%%% Счётчики %%%
+
+%% DOI
+\newcounter{mychapternumber} 
+\newcounter{chapterDOI}
+
+%% Упрощённые настройки шаблона диссертации: нумерация формул, таблиц, рисунков
+\ifnumequal{\value{contnumeq}}{1}{%
+    \counterwithout{equation}{chapter} % Убираем связанность номера формулы с номером главы/раздела
+}{}
+\ifnumequal{\value{contnumfig}}{1}{%
+    \counterwithout{figure}{chapter}   % Убираем связанность номера рисунка с номером главы/раздела
+}{}
+\ifnumequal{\value{contnumtab}}{1}{%
+    \counterwithout{table}{chapter}    % Убираем связанность номера таблицы с номером главы/раздела
+}{}
+
+
+%%%http://www.linux.org.ru/forum/general/6993203#comment-6994589 (используется totcount)
+\makeatletter
+\def\formbytotal#1#2#3#4#5{%
+    \newcount\@c
+    \@c\totvalue{#1}\relax
+    \newcount\@last
+    \newcount\@pnul
+    \@last\@c\relax
+    \divide\@last 10
+    \@pnul\@last\relax
+    \divide\@pnul 10
+    \multiply\@pnul-10
+    \advance\@pnul\@last
+    \multiply\@last-10
+    \advance\@last\@c
+    \total{#1}~#2%
+    \ifnum\@pnul=1#5\else%
+    \ifcase\@last#5\or#3\or#4\or#4\or#4\else#5\fi
+    \fi
+}
+\makeatother
+
+% xassoccnt to make total values: tables, figures, chapters 
+%https://tex.stackexchange.com/questions/295857/calculate-amount-of-figures?noredirect=1
+\NewTotalDocumentCounter{mytotalfigures}
+\NewTotalDocumentCounter{mytotalfiguresInApp}
+\NewTotalDocumentCounter{mytotaltables}
+\NewTotalDocumentCounter{mytotaltablesInApp}
+\NewTotalDocumentCounter{myappendices}
+\DeclareAssociatedCounters{figure}{mytotalfigures}
+\DeclareAssociatedCounters{table}{mytotaltables}
+
+%https://tex.stackexchange.com/questions/317434/mytotal-pages-number-warning-and-miscalculated
+%\NewTotalDocumentCounter{mytotalpages} % not supported yet in xassoccnt, use totpages package
+%\DeclareAssociatedCounters{page}{mytotalpages}
+
+%счетчики для вывода на печать
+\newcounter{mypages} % счетчик 
+\setcounter{mypages}{0} % 
+\newcounter{mytotalpagesInApp} % cчетчик 
+\setcounter{mytotalpagesInApp}{0} %
+\newcounter{myfigures} % счетчик 
+\setcounter{myfigures}{0} % 
+\newcounter{mytables} % счетчик 
+\setcounter{mytables}{0} %  
+
+
+
+
+\AtBeginDocument{
+	%% регистрируем счётчики в системе totcounter
+	%% позволяет использовать: 
+	%% 1) команду \total{counter} для печати значения
+	%% 2) спрягать значения слов с помощью \formbytotal
+	\regtotcounter{mypages}      % simple counter
+	\regtotcounter{TotPages}     % totpages package
+	\regtotcounter{myfigures}      % simple counter
+	\regtotcounter{mytotalfigures} % xassoccnt package
+	\regtotcounter{mytables}      % simple counter
+	\regtotcounter{mytotaltables} % xassoccnt package
+	\regtotcounter{myappendices}  % xassoccnt package
+}
+\newtotcounter{citenum} %счетчик для библиографии из totcount package
+
+
+\preto\appendix{% когда будет команда \appendix 
+	% см. также выше переопределение chapter для appendix
+	%% Сохранение сумм: рисунки, таблицы, страницы.
+	\setcounter{mytotalpagesInApp}{\value{TotPages}}% 
+	% count total values
+	\AddAssociatedCounters{figure}{mytotalfiguresInApp}
+	\AddAssociatedCounters{table}{mytotaltablesInApp}
+	\AddAssociatedCounters{chapter}{myappendices}
+	%% Форматирование
+	%\renewcommand\thechapter{\arabic{chapter}} % см. переопределение chapter для appendix
+	\renewcommand{\appendixname}{Приложение} %
+	\renewcommand{\thetable}{П\thechapter.\arabic{table}}
+	\renewcommand{\thefigure}{П\thechapter.\arabic{figure}}
+	\renewcommand{\theequation}{П\thechapter.\arabic{equation}}
+	\renewcommand{\thesection}{П\thechapter.\arabic{section}}
+	\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+	\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+	\counterwithin{footnote}{chapter} %связанная нумерация глав-сносок
+	\renewcommand{\thefootnote}{П\thechapter.\arabic{footnote}}
+}
+
+
+%%% Подсчет сумм: рисунки, таблицы, страницы
+%% Вариант 1 (рабочий)
+\AtEndDocument{
+	\setcounter{myfigures}{\value{mytotalfigures}}%
+	\addtocounter{myfigures}{-\value{mytotalfiguresInApp}}%
+	\setcounter{mytables}{\value{mytotaltables}}%
+	\addtocounter{mytables}{-\value{mytotaltablesInApp}}%
+	\setcounter{mypages}{\value{mytotalpagesInApp}}%
+%	\addtocounter{mypages}{-\value{mytotalpagesInApp}}%
+}
+%% Вариант 2 (для отладки)
+%% работает только в месте вывода на экран суммы, т.е. в реферате
+%\setcounter{myfigures}{\numexpr\TotalValue{mytotalfigures}-\TotalValue{mytotalfiguresInApp}\relax}
+
+
+
+%%% Правильная нумерация приложений %%%
+%% По ГОСТ 2.105, п. 4.3.8 Приложения обозначают заглавными буквами русского алфавита,
+%% начиная с А, за исключением букв Ё, З, Й, О, Ч, Ь, Ы, Ъ.
+%% Здесь также переделаны все нумерации русскими буквами.
+%\ifxetexorluatex
+%    \makeatletter
+%    \def\russian@Alph#1{\ifcase#1\or
+%       А\or Б\or В\or Г\or Д\or Е\or Ж\or
+%       И\or К\or Л\or М\or Н\or
+%       П\or Р\or С\or Т\or У\or Ф\or Х\or
+%       Ц\or Ш\or Щ\or Э\or Ю\or Я\else\xpg@ill@value{#1}{russian@Alph}\fi}
+%    \def\russian@alph#1{\ifcase#1\or
+%       а\or б\or в\or г\or д\or е\or ж\or
+%       и\or к\or л\or м\or н\or
+%       п\or р\or с\or т\or у\or ф\or х\or
+%       ц\or ш\or щ\or э\or ю\or я\else\xpg@ill@value{#1}{russian@alph}\fi}
+%    \makeatother
+%\else
+%    \makeatletter
+%    \if@uni@ode
+%      \def\russian@Alph#1{\ifcase#1\or
+%        А\or Б\or В\or Г\or Д\or Е\or Ж\or
+%        И\or К\or Л\or М\or Н\or
+%        П\or Р\or С\or Т\or У\or Ф\or Х\or
+%        Ц\or Ш\or Щ\or Э\or Ю\or Я\else\@ctrerr\fi}
+%    \else
+%      \def\russian@Alph#1{\ifcase#1\or
+%        \CYRA\or\CYRB\or\CYRV\or\CYRG\or\CYRD\or\CYRE\or\CYRZH\or
+%        \CYRI\or\CYRK\or\CYRL\or\CYRM\or\CYRN\or
+%        \CYRP\or\CYRR\or\CYRS\or\CYRT\or\CYRU\or\CYRF\or\CYRH\or
+%        \CYRC\or\CYRSH\or\CYRSHCH\or\CYREREV\or\CYRYU\or
+%        \CYRYA\else\@ctrerr\fi}
+%    \fi
+%    \if@uni@ode
+%      \def\russian@alph#1{\ifcase#1\or
+%        а\or б\or в\or г\or д\or е\or ж\or
+%        и\or к\or л\or м\or н\or
+%        п\or р\or с\or т\or у\or ф\or х\or
+%        ц\or ш\or щ\or э\or ю\or я\else\@ctrerr\fi}
+%    \else
+%      \def\russian@alph#1{\ifcase#1\or
+%        \cyra\or\cyrb\or\cyrv\or\cyrg\or\cyrd\or\cyre\or\cyrzh\or
+%        \cyri\or\cyrk\or\cyrl\or\cyrm\or\cyrn\or
+%        \cyrp\or\cyrr\or\cyrs\or\cyrt\or\cyru\or\cyrf\or\cyrh\or
+%        \cyrc\or\cyrsh\or\cyrshch\or\cyrerev\or\cyryu\or
+%        \cyrya\else\@ctrerr\fi}
+%    \fi
+%    \makeatother
+%\fi
+
+
+%%% Алгоритмы %%%
+
+%\usepackage[linesnumbered]{algorithm2e}
+\usepackage[linesnumbered,vlined,figure,scleft]{algorithm2e}
+
+%% Glogal params %%
+%ruled, tworuled, algoruled --- put lines to wrap the caption plus a line at the bottom (top) - one should not use this together with inline captions!
+%vlined 										--- instead of begin...end will be lines
+%boxed 											--- make a box
+% figure 										--- count as Fig. ...
+
+
+% Settings of caption       --- if one will use \caption{} option 	instead of inline + environment caption.
+%\SetAlgoCaptionSeparator{.}
+%\SetAlgorithmName{Algorithm}{} %last arg is the title of listing table
+
+
+% Settings for lines numbers
+\SetNlSkip{0em}							% sets the value of the space between the line numbers and the text, by default 1em.
+\SetNlSty{normalsize}{\hphantom{0}}{.}%defines how to print line numbers
+%\hspace*{5mm} does not work 
+\SetAlgoNlRelativeSize{-1}	% sets the relative size of line numbers. By default, line numbers are two size smaller than algorithm text
+
+% How to ignore line nuber and to wrap
+%http://tex.stackexchange.com/questions/153646/algorithm2e-disabling-line-numbers-for-specific-lines
+%http://tex.stackexchange.com/questions/86580/how-to-adjust-line-numbers-of-algorithm2e-package
+\makeatletter
+%\newcommand{\nosemic}{\renewcommand{\@endalgocfline}{\relax}}% Drop semi-colon ;
+%\newcommand{\dosemic}{\renewcommand{\@endalgocfline}{\algocf@endline}}% Reinstate semi-colon ;
+%\newcommand{\pushline}{\Indp}% Indent
+%\newcommand{\popline}{\Indm\dosemic}% Undent
+\let\oldnl\nl% Store \nl in \oldnl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}% Remove line number for one line
+\makeatother
+
+
+% Settings for vlines 			
+%\SetInd{0.3em}{0.5em}			%default and spaces before and after are 0.5em and 1em
+%\SetVlineSkip{5em}					% Sets the value of the vertical space after the little horizontal line which closes a block in vlined mode
+
+%% User abbreviations for ASTRA %%
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+%% See also %%
+%http://tex.stackexchange.com/questions/145114/caption-below-boxed-algorithm2e-when-used-as-a-figure
+%http://tex.stackexchange.com/questions/83536/align-comments-in-algorithm-with-package-algorithm2e
+
+
+

@@ -1,0 +1,19 @@
+\thispagestyle{empty}%
+\setcounter{tskPageFirst}{\value{page}} %сохранили номер первой страницы Задания
+\ifnumequal{\value{tskPrint}}{1}{% если двухсторонняя печать Задания, то...
+	\newgeometry{twoside,top=2cm,bottom=2cm,left=3cm,right=1cm,headsep=0cm,footskip=0cm}
+	\savegeometry{MyTask} %save settings
+	\makeatletter % задаём оформление второй страницы ВКР как нечетной, а третьей - как чётной
+	\let\tmp\oddsidemargin
+	\let\oddsidemargin\evensidemargin
+	\let\evensidemargin\tmp
+	\reversemarginpar
+	\makeatother
+}{} % 
+\pagestyle{empty} % удаляем номер страницы на втором/третьем листе
+\makeatletter
+\newrefcontext[labelprefix={3.}] % задаём префикс для списка литературы
+\makeatother
+\setlength{\parindent}{0pt}
+{\centering\bfseries%
+%	\small

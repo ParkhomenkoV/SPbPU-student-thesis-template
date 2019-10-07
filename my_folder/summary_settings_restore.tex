@@ -1,0 +1,11 @@
+\setcounter{sumPageLast}{\value{page}} %сохранили номер последней страницы Задания
+\setcounter{sumPages}{\value{sumPageLast}-\value{sumPageFirst}}
+\arabic{sumPageLast}
+\arabic{sumPages}
+\restoregeometry % восстанавливаем настройки страницы
+\pagestyle{plain} % удаляем номер страницы на первой/второй странице Задания
+%% Обязательно закомментировать, если получается один лист в задании:
+\ifnumequal{\value{sumPages}}{0}{% Если 1 страница в Задании, то ничего не делать.
+}{% Иначе
+	\setcounter{page}{\value{page}-\value{sumPages}} 	% вычесть значение sumPages при печати более 1 страницы страниц
+}%

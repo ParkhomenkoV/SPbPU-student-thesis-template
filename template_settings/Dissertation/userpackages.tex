@@ -1,0 +1,169 @@
+\usepackage{tabularx}
+
+
+
+\usepackage{layouts}
+
+\newenvironment{abstr}{\smallA\itshape}{\normalfont\normalsize}
+
+
+\usepackage[normalem]{ulem} % для перечеркнутых сроков команда \sout{text}
+\newcommand{\soutthick}[1]{%
+	\renewcommand{\ULthickness}{2.4pt}%
+	\sout{#1}%
+	\renewcommand{\ULthickness}{.4pt}% Resetting to ulem default
+}
+
+%для подчёркнутых команд
+%https://tex.stackexchange.com/questions/270286/uline-not-work-for-command-arguments
+\useunder{\uline}{\ulined}{}
+
+\usepackage{environ} % for Uppercase in Keywords
+%https://tex.stackexchange.com/questions/249628/uppercase-whole-newenvironment
+% недостаток - новые окружения не подхватываются TexStudio
+
+\usepackage{textcase} % for \MakeTextUppercase
+
+%for svg pictures
+%\usepackage{svg}
+
+
+%%% Mailto %%% 
+%%%https://tex.stackexchange.com/questions/128424/how-to-create-email-hyperlink-with-predefined-subject-in-latex
+%% unfortunatelly Adobe does not handle Recipient name + email, e.g.
+%% Vladimir Parkhomenko<parhomenko.v@gmail.com>
+
+
+%mailto with subject (impossible with href)
+%mailto anybody without email body
+\makeatletter
+\newcommand\mailtoab[3]{%                %\newcommand\tpj@compose@mailto[3]{%
+	\edef\@tempa{mailto:#1?subject=#2 }%
+	\edef\@tempb{\expandafter\html@spaces\@tempa\@empty}%
+	\href{\@tempb}{#3}}
+\catcode\%=11
+\def\html@spaces#1 #2{#1%20\ifx#2\@empty\else\expandafter\html@spaces\fi#2}
+	\catcode\%=14
+	\makeatother
+	
+	
+	%${email}{Subject}{email start body}{text in pdf}
+	\makeatletter
+	\newcommand\mailto[4]{%                %\newcommand\tpj@compose@mailto[3]{%
+		\edef\@tempa{mailto:#1?subject=#2\&body=#3 }%
+		\edef\@tempb{\expandafter\html@spaces\@tempa\@empty}%
+		\href{\@tempb}{#4}}
+	%% with %20 instead of spaces
+	%\catcode\%=11
+	%\def\html@spaces#1 #2{#1%20\ifx#2\@empty\else\expandafter\html@spaces\fi#2}
+	%\catcode\%=14
+	\makeatother
+	
+	%% MLABSED 2017 author
+	%%${email}{Subject}{email start body}{text in pdf}
+	\makeatletter
+	\newcommand\mailtoMLABSEDauthor[3]{%                
+		\edef\@tempa{mailto:#1?subject=MLABSED 2017\&body=#2 }%
+		\edef\@tempb{\expandafter\html@spaces\@tempa\@empty}%
+		\href{\@tempb}{#3}}
+	%% with %20 instead of spaces
+	%\catcode\%=11
+	%\def\html@spaces#1 #2{#1%20\ifx#2\@empty\else\expandafter\html@spaces\fi#2}
+	%\catcode\%=14
+	\makeatother
+	
+	
+	%%Vladimir Parkhomenko
+	\makeatletter
+	\newcommand\mailtopa[1]{%                %\newcommand\tpj@compose@mailto[3]{%
+		\edef\@tempa{mailto:parhomenko.v@gmail.com?subject=#1\&body=Dear Vladimir, }%
+		\edef\@tempb{\expandafter\html@spaces\@tempa\@empty}%
+		\href{\@tempb}{Vladimir.Parkhomenko@spbstu.ru}}
+	\catcode\%=11
+	\def\html@spaces#1 #2{#1%20\ifx#2\@empty\else\expandafter\html@spaces\fi#2}
+		\catcode\%=14
+		\makeatother
+		
+		%%Alexey Buzmakov
+		\makeatletter
+		\newcommand\mailtobu[1]{%                %\newcommand\tpj@compose@mailto[3]{%
+			\edef\@tempa{mailto:abuzmakov@gmail.com?subject=#1\&body=Dear Alexey, }%
+			\edef\@tempb{\expandafter\html@spaces\@tempa\@empty}%
+			\href{\@tempb}{abuzmakov@gmail.com}}
+		\catcode\%=11
+		\def\html@spaces#1 #2{#1%20\ifx#2\@empty\else\expandafter\html@spaces\fi#2}
+			\catcode\%=14
+			\makeatother
+			
+			%%Xenia Naidenova
+			\makeatletter
+			\newcommand\mailtona[1]{%                %\newcommand\tpj@compose@mailto[3]{%
+				\edef\@tempa{mailto:ksennaidd@gmail.com?subject=#1\&body=Dear Xenia, }%
+				\edef\@tempb{\expandafter\html@spaces\@tempa\@empty}%
+				\href{\@tempb}{ksennaidd@gmail.com}}
+			\catcode\%=11
+			\def\html@spaces#1 #2{#1%20\ifx#2\@empty\else\expandafter\html@spaces\fi#2}
+				\catcode\%=14
+				\makeatother
+				
+				
+				%%Konstantin Shvetsov
+				\makeatletter
+				\newcommand\mailtosh[1]{%                %\newcommand\tpj@compose@mailto[3]{%
+					\edef\@tempa{mailto:shvetsov@inbox.ru?subject=#1\&body=Dear Konstantin, }%
+					\edef\@tempb{\expandafter\html@spaces\@tempa\@empty}%
+					\href{\@tempb}{Konstantin.Shvetsov@spbstu.ru}}
+				\catcode\%=11
+				\def\html@spaces#1 #2{#1%20\ifx#2\@empty\else\expandafter\html@spaces\fi#2}
+					\catcode\%=14
+					\makeatother
+
+
+\usepackage{tabu, tabulary}  %таблицы с автоматически подбирающейся шириной столбцов
+\usepackage{fr-longtable}    %ради \endlasthead
+
+% Листинги с исходным кодом программ
+\usepackage{fancyvrb}
+\usepackage{listings}
+\lccode`\~=0\relax %Без этого хака из-за особенностей пакета listings перестают работать конструкции с \MakeLowercase и т. п. в (xe|lua)latex
+
+% Русская традиция начертания греческих букв
+\usepackage{upgreek} % прямые греческие ради русской традиции
+
+%https://tex.stackexchange.com/a/62351/44348
+% Микротипографика
+\ifnumequal{\value{draft}}{0}{% Только если у нас режим чистовика
+    \usepackage[final,letterspace=150]{microtype}[2016/05/14] % улучшает представление букв и слов в строках, может помочь при наличии отдельно висящих слов
+%    \lsstyle for letterspace style of letters
+}{}
+
+% Отметка о версии черновика на каждой странице
+% Чтобы работало надо в своей локальной копии по инструкции
+% https://www.ctan.org/pkg/gitinfo2 создать небходимые файлы в папке
+% ./git/hooks
+% If you’re familiar with tweaking git, you can probably work it out for
+% yourself. If not, I suggest you follow these steps:
+% 1. First, you need a git repository and working tree. For this example,
+% let’s suppose that the root of the working tree is in ~/compsci
+% 2. Copy the file post-xxx-sample.txt (which is in the same folder of
+% your TEX distribution as this pdf) into the git hooks directory in your
+% working copy. In our example case, you should end up with a file called
+% ~/compsci/.git/hooks/post-checkout
+% 3. If you’re using a unix-like system, don’t forget to make the file executable.
+% Just how you do this is outside the scope of this manual, but one
+% possible way is with commands such as this:
+% chmod g+x post-checkout.
+% 4. Test your setup with “git checkout master” (or another suitable branch
+% name). This should generate copies of gitHeadInfo.gin in the directories
+% you intended.
+% 5. Now make two more copies of this file in the same directory (hooks),
+% calling them post-commit and post-merge, and you’re done. As before,
+% users of unix-like systems should ensure these files are marked as
+% executable.
+\ifnumequal{\value{draft}}{1}{% Черновик
+   \IfFileExists{.git/gitHeadInfo.gin}{                                        
+      \usepackage[mark,pcount]{gitinfo2}
+      \renewcommand{\gitMark}{rev.\gitAbbrevHash\quad\gitCommitterEmail\quad\gitAuthorIsoDate}
+      \renewcommand{\gitMarkFormat}{\color{Gray}\small\bfseries}
+   }{}
+}{}

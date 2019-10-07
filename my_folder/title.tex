@@ -1,0 +1,103 @@
+%%% Титульник ВКР / Thesis title 
+%%
+%% добавить лист в pdf-навигацию 
+%% add to pdf navigation menu
+%%
+\pdfbookmark[-1]{\thesisTitle}{tit}
+%%
+\thispagestyle{empty}%
+\makeatletter
+\newgeometry{top=2cm,bottom=2cm,left=3cm,right=1cm,headsep=0cm,footskip=0cm}
+\savegeometry{NoFoot}%
+\makeatother
+
+
+%%% Распечатать версию документа / Print document version
+%%
+\begin{flushright}
+%	\vspace{0pt plus0.1fill}
+	\boxed{\small
+		\begin{tabular}{r} 
+			\textbf{Пример ВКР <<SPbPU-student-thesis-template>>.} %\\ % перенос на новую строку
+			\textbf{Версия от \today % \; время:  \currenttime. % время версии
+			}
+		\end{tabular}
+	} %end boxed
+%	\vspace*{-5pt} % раскомментировать, если не хватает места
+	\vspace{0pt plus0.1fill} % раскоментировать, если хватает места
+\end{flushright}
+
+{\centering%
+	\Ministry\\
+	\SPbPU\\
+	{%\bfseries %2020 - указание на изменения, которые могут быть введены в 2020 году
+		\institute}
+\par}%
+
+
+\vspace{0pt plus1fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
+
+
+\noindent
+\begin{minipage}{\linewidth}
+	\vspace{\mfloatsep} % интервал 
+	\begin{tabularx}{\linewidth}{Xl}
+	&Работа допущена к защите     \\
+	&\HeadTitle     \\			
+	&\underline{\hspace*{0.1\textheight}} \Head     \\
+	&<<\underline{\hspace*{0.05\textheight}}>> \underline{\hspace*{0.1\textheight}} \thesisYear~г.  \\ 
+	\end{tabularx}
+	\vspace{\mfloatsep} % интервал 	
+\end{minipage}
+
+
+\vspace{0pt plus2fill} %
+
+
+{\centering%
+	\MakeUppercase{\bfseries{Выпускная квалификационная работа \thesisDegree}}%
+
+
+\intervalS%
+
+	\MakeUppercase{\bfseries{\thesisTitle}}%
+
+\intervalS%
+	по направлению \thesisSpecialtyCodeAndTitle{}\\%
+	по образовательной программе\\%
+	\thesisOPCodeAndTitle
+\par}%
+
+
+
+
+
+\vspace{4mm plus2fill}%
+
+\noindent
+\begin{tabularx}{\linewidth}{lXl}
+	Выполнил              &	   &             \\
+	студент гр.\group     &    & \Author     \\[\mfloatsep]
+
+	Руководитель 		  &    &             \\
+	\SupervisorDegree\footnote{Должность указывают сокращенно, подразделения --- аббревиатурами. <<СПбПУ>> и аббревиатуры институтов не добавляют.} 	  &    & \Supervisor \\[\mfloatsep]
+	
+	Консультант		  &    & 			 \\
+	по \ldots\footnote{Оформляется по решению руководителя ОП или подразделения. Поясняющие 1-3 слова помещаются на титул и в задание. <<Научный консультант>> должен иметь степень. Без печати и заверения подписи.} &    &	 \\
+	\ConsultantExtraDegree 	  &    & \ConsultantExtra\\[\mfloatsep]
+	
+	Консультант  &    &  \\   	
+	по нормоконтролю\footnote{Обязателен, из числа ППС по решению руководителя ОП или подразделения. Должность и степень не указываются. Сведения помещаются в последнюю строчку по порядку. Рецензенты не указываются.}  		 	  &    & \ConsultantNorm  % обязателен
+\end{tabularx} %
+
+
+%
+\vspace{0pt plus4fill}% 
+
+
+\begin{center}%
+Санкт-Петербург\\
+\thesisYear
+\end{center}%
+\restoregeometry
+\newpage

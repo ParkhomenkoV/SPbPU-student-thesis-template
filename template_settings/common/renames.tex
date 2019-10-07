@@ -1,0 +1,155 @@
+%%% Внесите свои данные - Input your data
+%%
+%%
+\newcommand{\Author}{И.О.\,Фамилия} % И.О. Фамилия автора 
+\newcommand{\AuthorFull}{Фамилия Имя Отчество} % Фамилия Имя Отчество автора
+\newcommand{\AuthorFullDat}{Фамилия Имя Отчество} % Фамилия Имя Отчество автора в дательном падеже (Кому?) 
+\newcommand{\Supervisor}{И.О.\,Фамилия} % И. О. Фамилия научного руководителя
+\newcommand{\SupervisorDegree}{должность, степень} % 
+%%
+%%
+\newcommand{\Head}{И.О.\,Фамилия} % И. О. Фамилия руководителя подразделения (руководителя ОП)
+\newcommand{\HeadDegree}{Должность руководителя}% Только должность:   
+%Руководитель ОП 
+%Заведующий кафедрой
+%Директор Высшей школы
+\newcommand{\HeadDep}{M} % заменить на краткую аббревиатуру подразделения или оставить пустым, если утверждает руководитель ОП
+\newcommand{\ConsultantNorm}{И.О.\,Фамилия} % И. О. Фамилия консультанта по нормоконтролю. ТОЛЬКО из числа ППС!
+\newcommand{\ConsultantNormDegree}{должность, степень} %   
+\newcommand{\ConsultantExtra}{И.О.\,Фамилия} % И. О. Фамилия дополнительного консультанта 
+\newcommand{\ConsultantExtraDegree}{должность, степень} % 
+\newcommand{\Reviewer}{И.О.\,Фамилия} % И. О. Фамилия резензента. Обязателен только для магистров.
+\newcommand{\ReviewerDegree}{должность, степень} % 
+%%
+%%
+\renewcommand{\thesisTitle}{Название выпускной квалификационной работы}
+\newcommand{\thesisDegree}{бакалавра}% магистра или специалиста
+\newcommand{\thesisTitleEn}{Title of the thesis} %2020
+\newcommand{\thesisDeadline}{дд.мм.гггг}
+\newcommand{\thesisStartDate}{дд.мм.гггг}
+\newcommand{\thesisYear}{20XX}
+%%
+%%
+\newcommand{\group}{N} % заменить вместо N номер группы
+\newcommand{\thesisSpecialtyCode}{ХХ.ХХ.ХХ}% код направления подготовки
+\newcommand{\thesisSpecialtyTitle}{Наименование направления/специальности} % наименование направления/специальности
+\newcommand{\thesisOPPostfix}{YY} % последние цифры кода образовательной программы (после <<_>>)
+\newcommand{\thesisOPTitle}{Наименование образовательной программы}% наименование образовательной программы
+%%
+%%
+\newcommand{\institute}{
+Название института
+%Институт компьютерных наук и технологий
+%Гуманитарный институт
+%Инженерно-строительный институт
+%Институт биомедицинских систем и технологий
+%Институт металлургии, машиностроения и транспорта
+%Институт передовых производственных технологий
+%Институт прикладной математики и механики
+%Институт физики, нанотехнологий и телекоммуникаций
+%Институт физической культуры, спорта и туризма
+%Институт энергетики и транспортных систем
+%Институт промышленного менеджмента, экономики и торговли
+}%
+%%
+%%
+
+
+
+
+%%% Задание ключевых слов и аннотации
+%%
+%%
+%% Ключевых слов от 3 до 5 слов или словосочетаний в именительном падеже именительном падеже множественного числа (или в единственном числе, если нет другой формы) по правилам русского языка!!!
+%%
+%%
+\newcommand{\keywordsRu}{Стилевое оформление сайта, управление контентом, php, MySQL, архитектура системы} % ВВЕДИТЕ ключевые слова по-русски
+%%
+%%
+\newcommand{\keywordsEn}{Style registration, content management, php, MySQL, system architecture} % ВВЕДИТЕ ключевые слова по-английски
+%%
+%%
+%% Реферат не более 600 знаков на русский или английский текст
+\newcommand{\abstractRu}{В данной работе изложена сущность подхода к созданию динамического информационного портала на основе использования открытых технологий Apache, MySQL и PHP. Даны общие понятия и классификация IT-систем такого класса. Проведен анализ систем-прототипов. Изучена технология создания указанного класса информационных систем. Разработана конкретная программная реализация динамического информационного портала на примере портала выбранной тематики.} % ВВЕДИТЕ текст аннотации по-русски
+%%
+%%
+\newcommand{\abstractEn}{In the given work the essence of the approach to creation of a dynamic information portal on the basis of use of open technologies Apache, MySQL and PHP is stated. The general concepts and classification of IT-systems of such class are given. The analysis of systems-prototypes is lead. The technology of creation of the specified class of information systems is investigated. Concrete program realization of a dynamic information portal on an example of a portal of the chosen subjects is developed.} % ВВЕДИТЕ текст аннотации по-английски
+
+
+
+
+%%% Не меняем дальнейшую часть - Do not modify the rest part
+%%
+%%
+%%
+%%
+\newcommand{\HeadTitle}{\HeadDegree~\HeadDep}
+\newcommand{\thesisOPCode}{\thesisSpecialtyCode\_\thesisOPPostfix}% код образовательной программы
+\newcommand{\thesisSpecialtyCodeAndTitle}{\thesisSpecialtyCode~\thesisSpecialtyTitle}% Код и наименование направления/специальности
+\newcommand{\thesisOPCodeAndTitle}{\thesisOPCode~\thesisOPTitle} % код и наименование образовательной программы
+%%
+%%
+\hypersetup{%часть болка hypesetup в style
+		pdftitle={\thesisTitle},    % Заголовок pdf-файла
+		pdfauthor={\AuthorFull},    % Автор
+		pdfsubject={Выпускная квалификационная работа \thesisDegree. Шифр и наименование направления подготовки: \thesisSpecialtyCodeAndTitle. \abstractRu},      % Тема
+		pdfcreator={LaTeX, SPbPU-student-thesis-template},     % Приложение-создатель
+%		pdfproducer={},  % Производитель, Производитель PDF % будет выставлена автоматически
+		pdfkeywords={\keywordsRu}
+}
+%%
+%%
+%% вспомогательные команды
+\newcommand{\firef}[1]{рис.\ref{#1}} %figure reference
+\newcommand{\taref}[1]{табл.\ref{#1}}	%table reference
+%%
+%%
+%% Архивный вариант задания ключевых слов, аннотации и благодарностей 
+% Too hard to export data from the environment to pdf-info
+% https://tex.stackexchange.com/questions/184503/collecting-contents-of-environment-and-store-them-for-later-retrieval
+%заменить NewEnviron на newenvironment для распознавания команды в TexStudio
+%\NewEnviron{keywordsRu}{\noindent\MakeUppercase{\BODY}}
+%\NewEnviron{keywordsEn}{\noindent\MakeUppercase{\BODY}}
+%\newenvironment{abstractRu}{}{}
+%\newenvironment{abstractEn}{}{}
+%\newenvironment{acknowledgementsRu}{\par{\normalfont \acknowledgements.}}{}
+%\newenvironment{acknowledgementsEn}{\par{\normalfont \acknowledgementsENG.}}{}
+
+
+%%% Переопределение именований %%% Не меняем - Do not modify
+\newcommand{\Ministry}{Минобрнауки России} 
+\newcommand{\SPbPU}{Санкт-Петербургский политехнический университет Петра Великого}
+%% Пробел между И. О. не допускается.
+\renewcommand{\alsoname}{см. также}
+\renewcommand{\seename}{см.}
+\renewcommand{\headtoname}{вх.}
+\renewcommand{\ccname}{исх.}
+\renewcommand{\enclname}{вкл.}
+\renewcommand{\pagename}{Pages}
+\renewcommand{\partname}{Часть}
+\renewcommand{\abstractname}{\textbf{Аннотация}}
+\newcommand{\abstractnameENG}{\textbf{Annotation}}
+\newcommand{\keywords}{\textbf{Ключевые слова}}
+\newcommand{\keywordsENG}{\textbf{Keywords}}
+\newcommand{\acknowledgements}{\textbf{Благодарности}}
+\newcommand{\acknowledgementsENG}{\textbf{Acknowledgements}}
+\renewcommand{\contentsname}{Content} % 
+%\renewcommand{\contentsname}{Содержание} % (ГОСТ Р 7.0.11-2011, 4)
+%\renewcommand{\contentsname}{Оглавление} % (ГОСТ Р 7.0.11-2011, 4)
+\renewcommand{\figurename}{Рис.} % Стиль СПбПУ
+%\renewcommand{\figurename}{Рисунок} % (ГОСТ Р 7.0.11-2011, 5.3.9)
+\renewcommand{\tablename}{Таблица} % (ГОСТ Р 7.0.11-2011, 5.3.10)
+%\renewcommand{\indexname}{Предметный указатель}
+\renewcommand{\listfigurename}{Список рисунков}
+\renewcommand{\listtablename}{Список таблиц}
+\renewcommand{\refname}{\fullbibtitle}
+\renewcommand{\bibname}{\fullbibtitle}
+
+\newcommand{\chapterEnTitle}{Сhapter title} % <- input the English title here (only once!) 
+\newcommand{\chapterRuTitle}{Название главы}          % <- введите 
+\newcommand{\sectionEnTitle}{Section title} %<- input subparagraph title in english
+\newcommand{\sectionRuTitle}{Название подраздела} % <- введите название подраздела по-русски
+\newcommand{\subsectionEnTitle}{Subsection title} % - input subsection title in english
+\newcommand{\subsectionRuTitle}{Название параграфа} % <- введите название параграфа по-русски
+\newcommand{\subsubsectionEnTitle}{Subsubsection title} % <- input subparagraph title in english
+\newcommand{\subsubsectionRuTitle}{Название подпараграфа} % <- введите название подпараграфа по-русски
