@@ -1,7 +1,7 @@
 ﻿# Добро пожаловать на страницу шаблона SPbPU-student-thesis-template!
 
 
-Данная страница предназначена для авторов выпускных квалификационных работ, научных руководителей и консультантов Санкт-Петербургского Политехническо университета Петра Великого. 
+Данная страница предназначена для авторов выпускных квалификационных работ, научных руководителей и консультантов Санкт-Петербургского политехническо университета Петра Великого. 
 
 
 # Краткое введение
@@ -10,7 +10,7 @@
 
 1. Прочитайте Author_guide_SPbPU-student-thesis.pdf и My_thesis.pdf.
 2. Скачайте или клонируйте папку шаблона используя зелёную кнопку.
-3. Компилируйте My_thesis.tex.
+3. Компилируйте My_thesis.tex (текст ВКР) или My_task.tex (задание на ВКР отдельным файом).  
 4. Добавляйте контент только в файлы папки my_folder.  
 
 
@@ -20,7 +20,7 @@ In English
 
 1. Read Author_guide_SPbPU-student-thesis.pdf and My_thesis.pdf.
 2. Download or clone template folder using the green button.
-3. Compile My_thesis.tex.
+3. Compile My_thesis.tex (thesis' text) or My_task.tex (thesis' task as the separate file) .
 4. Add content only in files of my_folder.   
 
 Ask questions on the web-page https://github.com/ParkhomenkoV/SPbPU-student-thesis/issues
