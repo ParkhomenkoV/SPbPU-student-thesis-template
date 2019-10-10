@@ -28,16 +28,6 @@ Ask questions on the web-page https://github.com/ParkhomenkoV/SPbPU-student-thes
 
 ## Составители SPbPU-student-thesis-template
 
-### Составители Russian-Phd-LaTeX-Dissertation-Template
-
-Andrey Akinshin. 
-Some other persons see, please, in Acknolegement.
-
-Некоторые стилевые файлы проекта SPbPU-student-thesis-template адаптированы из файлов шаблона русскоязычных авторефератов и диссертаций Андрея Акиньшина:
-
-https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template
-
-
 ### Code editors of SPbPU-student-thesis-template
 
 Vladimir Parkhomenko
@@ -54,20 +44,28 @@ Ludmila Pankova,
 Alexander Schukin
 
 
-### Useful remarks to the content of SPbPU-student-thesis-template
+
+### Составители Russian-Phd-LaTeX-Dissertation-Template
+
+Andrey Akinshin. 
+Some other persons see, please, in Acknolegement.
+
+Некоторые стилевые файлы проекта SPbPU-student-thesis-template адаптированы из файлов шаблона русскоязычных авторефератов и диссертаций Андрея Акиньшина:
+
+https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template
 
 
 ## Acknowledgement
 
 
-Составители шаблона и документов SPbPU-BCI выражают благодарность Андрею Акиншину, а также
+Составители шаблона и документов SPbPU-student-thesis-template выражают благодарность Андрею Акиншину, а также
 
 - Юлии Мартыновой за оригинальный вариант шаблона,
 - dustalov, Lenchik, tonkonogov за значительный вклад и обсуждения,
 - storkvist, kshmirko, ZoomRmc, tonytonov, Thibak, eximius8, Nizky за полезные правки и замечания,
 - Олегу Одоманову за помощь в настроке пакета biblatex-gost,
 - Ольге Загороднюк за помощь с вычиткой описок и ошибок,
-- другим участникам LaTeX сообщества, принимавшим и принимающим участие в разработке Russian-Phd-LaTeX-Dissertation-Template и SPbPU-BCI template.
+- другим участникам LaTeX сообщества, принимавшим и принимающим участие в разработке Russian-Phd-LaTeX-Dissertation-Template и SPbPU-student-thesis-template.
 
 Template editors are grateful to
 
