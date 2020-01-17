@@ -14,7 +14,12 @@
 4. Добавляйте контент только в файлы папки my_folder.  
 
 
-Задавайте вопросы на странице https://github.com/ParkhomenkoV/SPbPU-student-thesis/issues
+Задавайте вопросы на странице https://github.com/ParkhomenkoV/SPbPU-student-thesis-template/issues
+
+Будем благодарны лайкам и репостам о данном шаблоне в социальных сетях
+https://vk.com/latex_polytech
+https://www.fb.com/groups/latex.polytech
+
 
 In English
 
@@ -23,8 +28,11 @@ In English
 3. Compile My_thesis.tex (thesis' text) or My_task.tex (thesis' task as the separate file) .
 4. Add content only in files of my_folder.   
 
-Ask questions on the web-page https://github.com/ParkhomenkoV/SPbPU-student-thesis/issues
+Ask questions on the web-page https://github.com/ParkhomenkoV/SPbPU-student-thesis-template/issues
 
+We will be gratefull for likes and forwards about this template in social nets:
+https://vk.com/latex_polytech
+https://www.fb.com/groups/latex.polytech
 
 ## Составители SPbPU-student-thesis-template
 
@@ -65,6 +73,7 @@ https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template
 - storkvist, kshmirko, ZoomRmc, tonytonov, Thibak, eximius8, Nizky за полезные правки и замечания,
 - Олегу Одоманову за помощь в настроке пакета biblatex-gost,
 - Ольге Загороднюк за помощь с вычиткой описок и ошибок,
+- Людмиле Шлыковой за помощь в составлении примера-комикса для авторов, оформляющих в Word,
 - другим участникам LaTeX сообщества, принимавшим и принимающим участие в разработке Russian-Phd-LaTeX-Dissertation-Template и SPbPU-student-thesis-template.
 
 Template editors are grateful to

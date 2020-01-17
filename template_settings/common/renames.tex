@@ -5,7 +5,9 @@
 \newcommand{\AuthorFull}{Фамилия Имя Отчество} % Фамилия Имя Отчество автора
 \newcommand{\AuthorFullDat}{Фамилия Имя Отчество} % Фамилия Имя Отчество автора в дательном падеже (Кому?) 
 \newcommand{\Supervisor}{И.О.\,Фамилия} % И. О. Фамилия научного руководителя
-\newcommand{\SupervisorDegree}{должность, степень} % 
+\newcommand{\SupervisorJob}{должность} %
+\newcommand{\SupervisorDegree}{степень} %
+\newcommand{\SupervisorTitle}{звание} % 
 %%
 %%
 \newcommand{\Head}{И.О.\,Фамилия} % И. О. Фамилия руководителя подразделения (руководителя ОП)
@@ -22,12 +24,13 @@
 \newcommand{\ReviewerDegree}{должность, степень} % 
 %%
 %%
-\renewcommand{\thesisTitle}{Название выпускной квалификационной работы}
-\newcommand{\thesisDegree}{бакалавра}% магистра или специалиста
+\renewcommand{\thesisTitle}{Тема выпускной квалификационной работы}
+%\newcommand{\thesisDegree}{бакалавра}% магистра или специалиста% 
+\newcommand{\thesisDegree}{работа бакалавра}% дипломный проект, дипломная работа, магистерская диссертация %c 2020
 \newcommand{\thesisTitleEn}{Title of the thesis} %2020
-\newcommand{\thesisDeadline}{дд.мм.гггг}
-\newcommand{\thesisStartDate}{дд.мм.гггг}
-\newcommand{\thesisYear}{20XX}
+\newcommand{\thesisDeadline}{дд.мм.202X}
+\newcommand{\thesisStartDate}{дд.мм.202X}
+\newcommand{\thesisYear}{202X}
 %%
 %%
 \newcommand{\group}{N} % заменить вместо N номер группы
@@ -117,8 +120,9 @@
 
 
 %%% Переопределение именований %%% Не меняем - Do not modify
-\newcommand{\Ministry}{Минобрнауки России} 
-\newcommand{\SPbPU}{Санкт-Петербургский политехнический университет Петра Великого}
+%\newcommand{\Ministry}{Минобрнауки России} 
+\newcommand{\Ministry}{Министерство науки и высшего образования Российской~Федерации} %с 2020
+\newcommand{\SPbPU}{Санкт-Петербургский политехнический университет Петра~Великого}
 %% Пробел между И. О. не допускается.
 \renewcommand{\alsoname}{см. также}
 \renewcommand{\seename}{см.}

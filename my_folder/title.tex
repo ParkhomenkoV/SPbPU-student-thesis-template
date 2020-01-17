@@ -55,18 +55,23 @@
 
 
 {\centering%
-	\MakeUppercase{\bfseries{Выпускная квалификационная работа \thesisDegree}}%
+	
+	\MakeUppercase{\bfseries{}Выпускная квалификационная работа} \\ 
+	\MakeUppercase{\thesisDegree}%
 
 
-\intervalS%
+%\intervalS% %ОБЯЗАТЕЛЬНО ДОБАВИТЬ ОТСТУП, ЕСЛИ ХВАТАЕТ МЕСТА
+{\centering%
+	\MakeUppercase{\bfseries{\thesisTitle}}}%
 
-	\MakeUppercase{\bfseries{\thesisTitle}}%
+}\par%
 
-\intervalS%
-	по направлению \thesisSpecialtyCodeAndTitle{}\\%
-	по образовательной программе\\%
-	\thesisOPCodeAndTitle
-\par}%
+%\intervalS% %ОБЯЗАТЕЛЬНО ДОБАВИТЬ ОТСТУП, ЕСЛИ ХВАТАЕТ МЕСТА
+%по специальности % для специалистов
+\noindent	по направлению подготовки \thesisSpecialtyCodeAndTitle{}\\% для бакалавров и магистров 
+%\noindent Направленность  % для специалистов
+\noindent	по~профилю	\thesisOPCodeAndTitle % для бакалавров и магистров
+\par%
 
 
 
@@ -77,10 +82,11 @@
 \noindent
 \begin{tabularx}{\linewidth}{lXl}
 	Выполнил              &	   &             \\
-	студент гр.\group     &    & \Author     \\[\mfloatsep]
+	студент гр.~\group     &    & \Author     \\[\mfloatsep]
 
 	Руководитель 		  &    &             \\
-	\SupervisorDegree\footnote{Должность указывают сокращенно, подразделения --- аббревиатурами. <<СПбПУ>> и аббревиатуры институтов не добавляют.} 	  &    & \Supervisor \\[\mfloatsep]
+	\SupervisorJob		  &    &             \\
+	\SupervisorDegree, \SupervisorTitle\footnote{Должность указывают сокращенно, учёную степень и звание ---~при наличии, а~подразделения ---~аббревиатурами. <<СПбПУ>> и~аббревиатуры институтов не добавляют.} 	  &    & \Supervisor \\[\mfloatsep]
 	
 	Консультант		  &    & 			 \\
 	по \ldots\footnote{Оформляется по решению руководителя ОП или подразделения. Поясняющие 1-3 слова помещаются на титул и в задание. <<Научный консультант>> должен иметь степень. Без печати и заверения подписи.} &    &	 \\
