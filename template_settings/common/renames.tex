@@ -11,12 +11,23 @@
 \newcommand{\SupervisorTitle}{звание} % 
 %%
 %%
+%Руководитель, утверждающий задание
 \newcommand{\Head}{И.О.\,Фамилия} % И. О. Фамилия руководителя подразделения (руководителя ОП)
 \newcommand{\HeadDegree}{Должность руководителя}% Только должность:   
+%Руководитель %ОП 
+%Заведующий % кафедрой
+%Директор % Высшей школы
+%Зам. директора
+\newcommand{\HeadDep}{M} % заменить на краткую аббревиатуру подразделения или оставить пустым, если утверждает руководитель ОП
+
+%%% Руководитель, принимающий заявление
+\newcommand{\HeadAp}{И.О.\,Фамилия} % И. О. Фамилия руководителя подразделения (руководителя ОП)
+\newcommand{\HeadApDegree}{Должность руководителя}% Только должность:   
 %Руководитель ОП 
 %Заведующий кафедрой
 %Директор Высшей школы
-\newcommand{\HeadDep}{M} % заменить на краткую аббревиатуру подразделения или оставить пустым, если утверждает руководитель ОП
+\newcommand{\HeadApDep}{O} % заменить на краткую аббревиатуру подразделения или оставить пустым, если утверждает руководитель ОП
+%%% Консультант по нормоконтролю
 \newcommand{\ConsultantNorm}{И.О.\,Фамилия} % И. О. Фамилия консультанта по нормоконтролю. ТОЛЬКО из числа ППС!
 \newcommand{\ConsultantNormDegree}{должность, степень} %   
 \newcommand{\ConsultantExtra}{И.О.\,Фамилия} % И. О. Фамилия дополнительного консультанта 
@@ -88,6 +99,7 @@
 %%
 %%
 \newcommand{\HeadTitle}{\HeadDegree~\HeadDep}
+\newcommand{\HeadApTitle}{\HeadApDegree~\HeadApDep}
 \newcommand{\thesisOPCode}{\thesisSpecialtyCode\_\thesisOPPostfix}% код образовательной программы
 \newcommand{\thesisSpecialtyCodeAndTitle}{\thesisSpecialtyCode~\thesisSpecialtyTitle}% Код и наименование направления/специальности
 \newcommand{\thesisOPCodeAndTitle}{\thesisOPCode~\thesisOPTitle} % код и наименование образовательной программы
