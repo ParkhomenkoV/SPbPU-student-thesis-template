@@ -8,10 +8,11 @@
 
 По-русски
 
-1. Прочитайте Author_guide_SPbPU-student-thesis.pdf и My_thesis.pdf.
+1. Прочитайте Author_guide_SPbPU-student-thesis.pdf (устарели) и My_thesis.pdf.
 2. Скачайте или клонируйте папку шаблона используя зелёную кнопку.
-3. Компилируйте My_thesis.tex (текст ВКР) или My_task.tex (задание на ВКР отдельным файом).  
-4. Добавляйте контент только в файлы папки my_folder.  
+3. Установите дистрибутив LaTeX и редактор, например, TeX Live и TeXStudio соответственно.
+4. Компилируйте My_thesis.tex (текст ВКР) или My_task.tex (задание на ВКР отдельным файом).  
+5. Добавляйте контент только в файлы папки my_folder.  
 
 
 Задавайте вопросы на странице https://github.com/ParkhomenkoV/SPbPU-student-thesis-template/issues
@@ -23,10 +24,11 @@ https://www.fb.com/groups/latex.polytech
 
 In English
 
-1. Read Author_guide_SPbPU-student-thesis.pdf and My_thesis.pdf.
+1. Read Author_guide_SPbPU-student-thesis.pdf (not updated) and My_thesis.pdf.
 2. Download or clone template folder using the green button.
-3. Compile My_thesis.tex (thesis' text) or My_task.tex (thesis' task as the separate file) .
-4. Add content only in files of my_folder.   
+3. Install LaTeX distributive and IDE, e.g. TeX Live and TeXStudio, respectively.
+4. Compile My_thesis.tex (thesis' text) or My_task.tex (thesis' task as the separate file) .
+5. Add content only in files of my_folder.   
 
 Ask questions on the web-page https://github.com/ParkhomenkoV/SPbPU-student-thesis-template/issues
 
@@ -92,4 +94,4 @@ All modifications made with Russian-Phd-LaTeX-Dissertation-Template are shown in
 
 Документы проекта SPbPU-student-thesis-template не являются официальными документами SPbPU, но соответствуют требованиям, предъявляемым к ВКР. 
 
-07 October 2019
+06 Feburary 2020

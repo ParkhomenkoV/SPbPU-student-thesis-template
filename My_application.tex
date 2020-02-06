@@ -1,5 +1,9 @@
 %%%% Шаблон ВКР <<SPbPU-student-thesis-template>>  %%%%
 %%
+%%% Заявление на тему, руководителя и консультанта ВКР  
+%%% Application on the thesis theme, advisor and consultant
+%%
+%%
 %%   Создан на основе глубокой переработки шаблона российских кандидатских и докторских диссертаций [1]. 
 %%   
 %%   Полный список различий может быть получен командами git.
@@ -7,11 +11,11 @@
 %%   Подробные инструкции по использованию в [1,2].
 %%   
 %%   Рекомендуем установить TeX Live + TeXstudio
-%%   <<Стандартная>> компиляция 2-3 РАЗА с помощью pdflatex + biber (для библиографии)     
+%%   <<Стандартная>> компиляция 2-3 РАЗА с помощью pdflatex + biber (для библиографии)    
 %%  
 %%%% Student thesis template <<SPbPU-student-thesis-template>> %%%%
 %%
-%%   Created on the basis of deepl modifification of the Russian candidate and doctorate thesis template [1]. 
+%%   Created on the basis of deep modifification of the Russian candidate and doctorate thesis template [1]. 
 %%   
 %%   Full list of differences can be achieved by git commands.
 %%   List of template authors can be seen in the README.md file.
@@ -21,7 +25,7 @@
 %%   [2] Author_guide_SPBPU-student-thesis-template.pdf
 %%   
 %%   It is recommended to install TeX Live + TeXstudio   
-%%   Default compilation 2-3 TIMES with pdflatex + biber (for the bibliography)
+%%   Default compilation 2-3 TIMES with pdflatex + biber (for the bibliography)    
 %%  
 \input{template_settings/ch_preamble} % лучше не редактировать / please, keep unmodified
 
@@ -36,50 +40,89 @@
 \input{template_settings/common/renames} % Заполнить сведения, 
 										 % в т.ч. ключевые слова и аннотацию.
 
-\input{my_folder/title}					 % Титульный лист
-										 % Убираем footnotes, консультанта, если нет
-
-\input{my_folder/task}					 % Задание 
-										 % Для сдачи в высшую школу компилируем двухсторонний My_task.tex 
-										 % После подписания задания изменение его содержания и оформления запрещено
-
-\input{my_folder/summary}			 	 % Реферат 
-										 % Убираем footnotes, дубли команд \abstractEn и \abstractRu 
-										
-
-\input{my_folder/contents}  	         % Оглавление
 
 
-\input{my_folder/introduction}	    	 % Введение
 
-%% Начало основной части
-\input{my_folder/chapter1}	         	 % Глава 1
-\ContinueChapterBegin % размещать главы <<подряд>> 
-\input{my_folder/chapter2}	         	 % Глава 2
-\input{my_folder/chapter3}           	 % Глава 3
-\input{my_folder/chapter4}           	 % Глава 3
-\ContinueChapterEnd % завершить размещение глав <<подряд>>
-%% Завершение основной части
+\thispagestyle{empty}%
 
-\input{my_folder/conclusion}        	 % Заключение
-
-%% Наличие следующих перечней не исключает расшифровку сокращения и условного обозначения при первом упоминании в тексте!
-\input{my_folder/acronyms}		         % Необязательная рубрика! Список сокращений и условных обозначений
-
-\input{my_folder/dictionary}    		 % Необязательная рубрика! Словарь терминов
-% По порядку после Списка сокращений и условных обозначений, если есть.	
+\noindent
+\begin{minipage}{\linewidth}
+	\vspace{\mfloatsep} % интервал 
+	\begin{tabularx}{\linewidth}{Xl}
+		&\HeadTitle     \\			
+		&\Head       \\
+		& от студента группы.~\group \\
+		& \AuthorFull \\
+		& № телефона \AuthorPhone \\ 
+	\end{tabularx}
+	\vspace{\mfloatsep} % интервал 	
+\end{minipage}
 
 
-\input{my_folder/references}		     % Список литературы
-
-% Здесь можно поместить список иллюстративного материала
-
-\appendix % не редактировать / keep unmodified
+\vspace{0pt plus1fill} %
 
 
-\input{my_folder/appendix1}			     % Приложение 1
+{\centering%
+	
+	\MakeUppercase{\bfseries{}Заявление} \\ 
 
-\input{my_folder/appendix2}			 	 % Приложение 2
+	
+	
+\intervalS% %МОЖНО УБРАТЬ ОТСТУП
+}\par%
+
+\intervalS% %МОЖНО УБРАТЬ ОТСТУП
+%по специальности % для специалистов
+
+	Прошу разрешить мне защиту выпускной квалификационной работы (\thesisDegree) в~июне \thesisYear~г. по теме: {\expandafter \ulined \thesisTitle.}
+	
+\intervalS% %МОЖНО УБРАТЬ ОТСТУП
+	
+	Перевод темы ВКР на английский язык\footnote{Именно эта тема впоследствии вносится на vkr.spbstu.ru.
+		Записывается по правилам русского языка, а не в западноевропейской традиции (т.е. запрещено писать каждое слово с прописной буквы).}:
+	{\expandafter \ulined \thesisTitleEn.}
+	
+	
+	
+
+	
+\intervalS%
+
+Прошу назначить научным руководителем: \uline{\SupervisorJob, \SupervisorDegree{} \Supervisor.}
+
+\intervalS%
+
+Прошу назначить консультантом: \uline{\ConsultantExtraDegree{} \ConsultantExtra.}
+
+\intervalS%
+
+
+\noindent
+\begin{minipage}{\linewidth}
+	\vspace{\mfloatsep} % интервал 
+	\begin{tabularx}{\linewidth}{Xl}
+
+		\hspace*{-0.7em} Дата \uline{\thesisStartDate}~г. &Подпись \underline{\hspace*{0.1\textheight}} \\
+		\end{tabularx}
+	\vspace{\mfloatsep} % интервал 	
+\end{minipage}
+
+\intervalS%
+
+\noindent\MakeUppercase{Согласовано:}
+
+\intervalS%
+
+\noindent Руководитель ВКР \uline{\hspace*{0.1\textheight} \Supervisor}
+
+
+\intervalS%можно удалить пробел
+
+\noindent Консультант\footnote{В случае, если есть консультант, отличный от консультанта по нормоконтролю.}  \uline{\hspace*{0.1\textheight}\ConsultantExtra}
+
+
+
+\vspace{4mm plus2fill}%
 
 
 \end{document} % конец документа
