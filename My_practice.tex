@@ -1,4 +1,4 @@
-%%%% Шаблон ВКР <<SPbPU-student-thesis-template>>  %%%%
+%%%% Шаблон Отчета по практике <<SPbPU-student-thesis-template>>  %%%%
 %%
 %%   Создан на основе глубокой переработки шаблона российских кандидатских и докторских диссертаций [1]. 
 %%   
@@ -11,7 +11,7 @@
 %%  
 %%%% Student thesis template <<SPbPU-student-thesis-template>> %%%%
 %%
-%%   Created on the basis of deepl modifification of the Russian candidate and doctorate thesis template [1]. 
+%%   Created on the basis of deep modifification of the Russian candidate and doctorate thesis template [1]. 
 %%   
 %%   Full list of differences can be achieved by git commands.
 %%   List of template authors can be seen in the README.md file.
@@ -25,28 +25,22 @@
 %%  
 \input{template_settings/ch_preamble} % лучше не редактировать / please, keep unmodified
 
-\setcounter{docType}{1} % лучше не редактировать / please, keep unmodified
+\setcounter{docType}{2} % лучше не редактировать / please, keep unmodified
 
 %%%% Настройки автора / Author settings
 %% 
 \input{my_folder/my_settings} % добавляем свои команды / update your commands
 
+
 \begin{document} % начало документа
+	
 
 
 \input{template_settings/common/renames} % Заполнить сведения, 
 										 % в т.ч. ключевые слова и аннотацию.
 
-\input{my_folder/title}					 % Титульный лист
+\input{my_folder/practice}				 % Титульный лист
 										 % Убираем footnotes, консультанта, если нет
-
-\input{my_folder/task}					 % Задание 
-										 % Для сдачи в высшую школу компилируем двухсторонний My_task.tex 
-										 % После подписания задания изменение его содержания и оформления запрещено
-
-\input{my_folder/summary}			 	 % Реферат 
-										 % Убираем footnotes, дубли команд \abstractEn и \abstractRu 
-										
 
 \input{my_folder/contents}  	         % Оглавление
 

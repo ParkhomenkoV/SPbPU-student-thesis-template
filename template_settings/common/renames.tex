@@ -4,8 +4,10 @@
 \newcommand{\Author}{И.О.\,Фамилия} % И.О. Фамилия автора 
 \newcommand{\AuthorFull}{Фамилия Имя Отчество} % Фамилия Имя Отчество автора
 \newcommand{\AuthorFullDat}{Фамилия Имя Отчество} % Фамилия Имя Отчество автора в дательном падеже (Кому? Студенту...)
+\newcommand{\AuthorFullVin}{Фамилия Имя Отчество} % в винительном падеже (Кого? что?  Програмиста ...)
 \newcommand{\AuthorPhone}{+7-9XX-XXX-XX-XX} % номер телефорна автора для оперативной связи  
 \newcommand{\Supervisor}{И.О.\,Фамилия} % И. О. Фамилия научного руководителя
+\newcommand{\SupervisorFull}{Фамилия Имя Отчество} % Фамилия Имя Отчество научного руководителя
 \newcommand{\SupervisorVin}{И.О.\,Фамилию} % И. О. Фамилия научного руководителя  в винительном падеже (Кого? что? Руководителя ...)
 \newcommand{\SupervisorJob}{должность} %
 \newcommand{\SupervisorJobVin}{должность} % в винительном падеже (Кого? что?  Програмиста ...)
@@ -32,16 +34,23 @@
 %%% Консультант по нормоконтролю
 \newcommand{\ConsultantNorm}{И.О.\,Фамилия} % И. О. Фамилия консультанта по нормоконтролю. ТОЛЬКО из числа ППС!
 \newcommand{\ConsultantNormDegree}{должность, степень} %   
+%%% Первый консультант
+\newcommand{\ConsultantExtraFull}{Фамилия Имя Отчетство} % Фамилия Имя Отчетство дополнительного консультанта 
 \newcommand{\ConsultantExtra}{И.О.\,Фамилия} % И. О. Фамилия дополнительного консультанта 
 \newcommand{\ConsultantExtraDegree}{должность, степень} % 
 \newcommand{\ConsultantExtraVin}{И.О.\,Фамилию} % И. О. Фамилия дополнительного консультанта в винительном падеже (Кого? что? Руководителя ...)
 \newcommand{\ConsultantExtraDegreeVin}{должность, степень} %  в винительном падеже (Кого? что? Руководителя ...)
+%%% Второй консультант
+\newcommand{\ConsultantExtraTwoFull}{Фамилия Имя Отчетство} % Фамилия Имя Отчетство дополнительного консультанта 
+\newcommand{\ConsultantExtraTwo}{И.О.\,Фамилия} % И. О. Фамилия дополнительного консультанта 
+\newcommand{\ConsultantExtraTwoDegree}{должность, степень} % 
+\newcommand{\ConsultantExtraTwoVin}{И.О.\,Фамилию} % И. О. Фамилия дополнительного консультанта в винительном падеже (Кого? что? Руководителя ...)
+\newcommand{\ConsultantExtraTwoDegreeVin}{должность, степень} %  в винительном падеже (Кого? что? Руководителя ...)
 \newcommand{\Reviewer}{И.О.\,Фамилия} % И. О. Фамилия резензента. Обязателен только для магистров.
 \newcommand{\ReviewerDegree}{должность, степень} % 
 %%
 %%
 \renewcommand{\thesisTitle}{Тема выпускной квалификационной работы}
-%\newcommand{\thesisDegree}{бакалавра}% магистра или специалиста% 
 \newcommand{\thesisDegree}{работа бакалавра}% дипломный проект, дипломная работа, магистерская диссертация %c 2020
 \newcommand{\thesisTitleEn}{Title of the thesis} %2020
 \newcommand{\thesisDeadline}{дд.мм.202X}
@@ -58,7 +67,7 @@
 %%
 \newcommand{\institute}{
 Название института
-%Институт компьютерных наук и технологий
+%Институт компьютерных наук и~технологий
 %Гуманитарный институт
 %Инженерно-строительный институт
 %Институт биомедицинских систем и технологий
@@ -103,13 +112,49 @@
 \newcommand{\abstractEn}{In the given work the essence of the approach to creation of a dynamic information portal on the basis of use of open technologies Apache, MySQL and PHP is stated. The general concepts and classification of IT-systems of such class are given. The analysis of systems-prototypes is lead. The technology of creation of the specified class of information systems is investigated. Concrete program realization of a dynamic information portal on an example of a portal of the chosen subjects is developed...} % ВВЕДИТЕ текст аннотации по-английски
 
 
+%%% РАЗДЕЛ ДЛЯ ОФОРМЛЕНИЯ ПРАКТИКИ
+%Место прохождения практики
+\newcommand{\PracticeType}{Отчет о прохождении % 
+	%стационарной производственной (технологической (проектно-технологической)) %
+	такой-то % тип и вид ЗАМЕНИТЬ
+	практики}
 
+\newcommand{\Workplace}{СПбПУ, ИКНТ, ВШИСиСТ} % TODO Rename this variable
+
+% Даты начала/окончания
+\newcommand{\PracticeStartDate}{%
+дд.мм.гггг%
+%	22.06.2020
+}%
+\newcommand{\PracticeEndDate}{%
+	дд.мм.гггг%
+%	18.07.2020%
+}%
+%%
+
+\newcommand{\School}{
+	Название высшей школы
+%	Высшая школа интеллектуальных систем и~суперкомпьютерных~технологий 
+}
+\newcommand{\practiceTitle}{Тема практики}
+
+
+%% ВНИМАНИЕ! Необходимо либо заменить текст аннотации (ключевых слов) на русском и английском, либо удалить там весь текст, иначе в свойства pdf-отчета по практике пойдет шаблонный текст.
 
 %%% Не меняем дальнейшую часть - Do not modify the rest part
 %%
 %%
 %%
 %%
+\ifnumequal{\value{docType}}{1}{% Если ВКР, то...
+	\newcommand{\DocType}{Выпускная квалификационная работа}
+	\newcommand{\pdfDocType}{\DocType~(\thesisDegree)} %задаём метаданные pdf файла
+	\newcommand{\pdfTitle}{\thesisTitle}
+}{% Иначе 
+	\newcommand{\DocType}{\PracticeType}
+	\newcommand{\pdfDocType}{\DocType} %задаём метаданные pdf файла
+	\newcommand{\pdfTitle}{\practiceTitle}
+}%
 \newcommand{\HeadTitle}{\HeadDegree~\HeadDep}
 \newcommand{\HeadApTitle}{\HeadApDegree~\HeadApDep}
 \newcommand{\thesisOPCode}{\thesisSpecialtyCode\_\thesisOPPostfix}% код образовательной программы
@@ -118,9 +163,9 @@
 %%
 %%
 \hypersetup{%часть болка hypesetup в style
-		pdftitle={\thesisTitle},    % Заголовок pdf-файла
+		pdftitle={\pdfTitle},    % Заголовок pdf-файла
 		pdfauthor={\AuthorFull},    % Автор
-		pdfsubject={Выпускная квалификационная работа \thesisDegree. Шифр и наименование направления подготовки: \thesisSpecialtyCodeAndTitle. \abstractRu},      % Тема
+		pdfsubject={\pdfDocType. Шифр и наименование направления подготовки: \thesisSpecialtyCodeAndTitle. \abstractRu},      % Тема
 		pdfcreator={LaTeX, SPbPU-student-thesis-template},     % Приложение-создатель
 %		pdfproducer={},  % Производитель, Производитель PDF % будет выставлена автоматически
 		pdfkeywords={\keywordsRu}
@@ -148,6 +193,8 @@
 %\newcommand{\Ministry}{Минобрнауки России} 
 \newcommand{\Ministry}{Министерство науки и высшего образования Российской~Федерации} %с 2020
 \newcommand{\SPbPU}{Санкт-Петербургский политехнический университет Петра~Великого}
+\newcommand{\SPbPUOfficialPrefix}{Федеральное государственное автономное образовательное учреждение высшего образования}
+\newcommand{\SPbPUOfficialShort}{ФГАОУ~ВО~<<СПбПУ>>}
 %% Пробел между И. О. не допускается.
 \renewcommand{\alsoname}{см. также}
 \renewcommand{\seename}{см.}

@@ -1,0 +1,121 @@
+%%% Титульник отчета по практике / Practice report title 
+%%
+%% добавить лист в pdf-навигацию 
+%% add to pdf navigation menu
+%%
+\pdfbookmark[-1]{\pdfTitle}{tit}
+%%
+\thispagestyle{empty}%
+\makeatletter
+\newgeometry{top=2cm,bottom=2cm,left=3cm,right=1cm,headsep=0cm,footskip=0cm}
+\savegeometry{NoFoot}%
+\makeatother
+
+%%% Распечатать версию документа / Print document version
+%%
+\begin{flushright}
+	%	\vspace{0pt plus0.1fill}
+	\boxed{\small
+		\begin{tabular}{r} 
+			\textbf{Пример отчета по практике <<SPbPU-student-thesis-template>>.} %\\ % перенос на новую строку
+			\textbf{Версия от \today % \; время:  \currenttime. % время версии
+			}
+		\end{tabular}
+	} %end boxed
+	%	\vspace*{-5pt} % раскомментировать, если не хватает места
+	\vspace{0pt plus0.1fill} % раскоментировать, если хватает места
+\end{flushright}
+
+
+
+
+
+
+% TODO Exact match of font size
+%{\centering%
+%	\footnotesize
+%	\MakeUppercase{Федеральное государственное автономное образовательное учреждение\\высшего образования}\\%
+%		{\bfseries <<\SPbPU>>\\%
+%			\institute\\%
+%			\School}
+%}
+
+{\centering%
+	\small%
+	\MakeUppercase{\SPbPUOfficialPrefix}\\
+	{\bfseries %2020 - указание на изменения, которые могут быть введены в 2020 году
+	<<\MakeUppercase{\SPbPU}>>\\%
+	\MakeUppercase{\institute}\\
+	\MakeUppercase{\School}
+	}
+\par}%
+	
+
+\vspace{0pt plus1fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
+
+
+\noindent
+
+
+%\vspace{0pt plus2fill} %
+
+
+{\centering%
+	{\bfseries{} 
+	\DocType\\
+	на тему: <<\practiceTitle>>}\\
+
+\intervalS\normalfont%
+
+	\uline{\AuthorFullVin , гр. \group}%
+
+\intervalS\normalfont%
+
+\par}%
+
+%\intervalS% %ОБЯЗАТЕЛЬНО ДОБАВИТЬ ОТСТУП, ЕСЛИ ХВАТАЕТ МЕСТА
+
+
+{\noindent {\bfseries Направление подготовки:} {\expandafter \ulined \thesisSpecialtyCode~\thesisSpecialtyTitle}.}\par
+
+
+{\noindent {\bfseries Место прохождения практики:} {\expandafter \ulined \Workplace}.} % включая фактический адрес для практики в сторонней организации по договору
+
+
+{\noindent {\bfseries Сроки практики:} \uline{с \PracticeStartDate~по \PracticeEndDate.}}\par
+
+
+{\noindent {\bfseries Руководитель практики от \SPbPUOfficialShort:}} {\expandafter \ulined \SupervisorFull, \SupervisorJob, \SupervisorDegree.} %Ф.И.О., должность, степень
+
+
+
+{\noindent \bfseries 
+	Консультант практики от \SPbPUOfficialShort:
+%	Консультанты практики от \SPbPUOfficialShort:
+} 
+{\noindent \expandafter \ulined \ConsultantExtraFull, \ConsultantExtraDegree}.%,      %% первый консультант Ф.И.О., должность, степень
+%{\noindent \expandafter \ulined \ConsultantExtraTwoFull, \ConsultantExtraTwoDegree.}  %% второй консультант Ф.И.О., должность, степень 
+
+{\noindent {\bfseries Оценка:} \uline{\hspace*{0.1\textheight}} % НЕ ЗАПОЛНЯЕМ!
+
+\vspace{0pt plus1fill}%
+
+\noindent
+\begin{tabularx}{\linewidth}{lXl}
+	Руководитель практики		&	&\\
+	от \SPbPUOfficialShort		&	& \Supervisor     \\[\mfloatsep] % если не хватает места, закомментировать
+
+	Консультант практики		&	&\\
+	от \SPbPUOfficialShort		&	& \ConsultantExtra\\[\mfloatsep]
+%							&	& \ConsultantExtraTwo\\[\mfloatsep]
+	
+	Обучающийся				&	&\Author\\[\mfloatsep]
+	Дата: \uline{\PracticeEndDate}		&	&
+\end{tabularx} %
+
+
+%
+\vspace{0pt plus4fill}% 
+
+\restoregeometry
+\newpage
