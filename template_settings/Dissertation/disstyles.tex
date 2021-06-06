@@ -399,7 +399,7 @@
 }%
 
 \newcommand{\NewPage}{% в случае, если на последней странице приложения есть <<висячая>> таблица или рисунок
-\newpage\leavevmode\thispagestyle{empty}\newpage %начать новое приложение с новой страницы 
+\newpage\leavevmode\thispagestyle{plain}\newpage %начать новое приложение с новой страницы 
 }%
 
 
@@ -526,6 +526,7 @@
 	\setcounter{mytables}{\value{mytotaltables}}%
 	\addtocounter{mytables}{-\value{mytotaltablesInApp}}%
 	\setcounter{mypages}{\value{mytotalpagesInApp}}%
+	\addtocounter{mypages}{1}%
 %	\addtocounter{mypages}{-\value{mytotalpagesInApp}}%
 }
 %% Вариант 2 (для отладки)
