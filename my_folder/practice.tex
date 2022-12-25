@@ -42,7 +42,7 @@
 	\MakeUppercase{\SPbPUOfficialPrefix}\\
 	{\bfseries %2020 - указание на изменения, которые могут быть введены в 2020 году
 	<<\MakeUppercase{\SPbPU}>>\\%
-	\uline{\institute}
+	\institute
 	}
 \par}%
 	
@@ -63,20 +63,19 @@
 
 \intervalS
 
-\normalfont\uline{\AuthorFull}\\%
-\footnotesize{\textit{(Ф.И.О обучающегося)}}
+\normalfont\uline{\AuthorFull}\footnote{Ф.И.О обучающегося}\\%
 
-\normalsize\uline{\course~курс, \group}\\%
-\footnotesize{\textit{(номер курса обучения и учебной группы)}}
 
-\normalsize\uline{\thesisSpecialtyCode~\thesisSpecialtyTitle}\\%
-\footnotesize{\textit{(направление подготовки (код и наименование)}}
+\normalsize\uline{\course~курс, \group}\footnote{номер курса обучения и учебной группы}\\%
 
-\normalsize\uline{\noindent {\bfseries Место прохождения практики:} {\expandafter \Workplace}.}\\%
-\footnotesize{\textit{(указывается наименование профильной организации или наименование структурного подразделения)}}
 
-\normalsize\uline{\WorkplaceAddress}\\%
-\footnotesize{\textit{(\SPbPUOfficialShort, фактический адрес)}}
+\normalsize\uline{\thesisSpecialtyCode~\thesisSpecialtyTitle}\footnote{направление подготовки (код и наименование)}\\%
+
+
+\normalsize\uline{\noindent {\bfseries Место прохождения практики:} {\expandafter \Workplace}.}\footnote{указывается наименование профильной организации или наименование структурного подразделения}\\%
+
+
+\normalsize\uline{\WorkplaceAddress}\footnote{\SPbPUOfficialShort, фактический адрес}\\%
 
 \intervalS\normalfont%
 
