@@ -28,9 +28,6 @@
 
 
 
-
-
-
 % TODO Exact match of font size
 %{\centering%
 %	\footnotesize
@@ -45,8 +42,7 @@
 	\MakeUppercase{\SPbPUOfficialPrefix}\\
 	{\bfseries %2020 - указание на изменения, которые могут быть введены в 2020 году
 	<<\MakeUppercase{\SPbPU}>>\\%
-	\MakeUppercase{\institute}\\
-	\MakeUppercase{\School}
+	\institute
 	}
 \par}%
 	
@@ -65,22 +61,27 @@
 	\DocType\\
 	на тему: <<\practiceTitle>>}\\
 
-\intervalS\normalfont%
+\intervalS
 
-	\uline{\AuthorFullVin , гр. \group}%
+\normalfont\uline{\AuthorFull}\footnote{Ф.И.О обучающегося}\\%
+
+
+\normalsize\uline{\course~курс, \group}\footnote{номер курса обучения и учебной группы}\\%
+
+
+\normalsize\uline{\thesisSpecialtyCode~\thesisSpecialtyTitle}\footnote{направление подготовки (код и наименование)}\\%
+
+
+\normalsize\uline{\noindent {\bfseries Место прохождения практики:} {\expandafter \Workplace}.}\footnote{указывается наименование профильной организации или наименование структурного подразделения}\\%
+
+
+\normalsize\uline{\WorkplaceAddress}\footnote{\SPbPUOfficialShort, фактический адрес}\\%
 
 \intervalS\normalfont%
 
 \par}%
 
 %\intervalS% %ОБЯЗАТЕЛЬНО ДОБАВИТЬ ОТСТУП, ЕСЛИ ХВАТАЕТ МЕСТА
-
-
-{\noindent {\bfseries Направление подготовки:} {\expandafter \ulined \thesisSpecialtyCode~\thesisSpecialtyTitle}.}\par
-
-
-{\noindent {\bfseries Место прохождения практики:} {\expandafter \ulined \Workplace}.} % включая фактический адрес для практики в сторонней организации по договору
-
 
 {\noindent {\bfseries Сроки практики:} \uline{с \PracticeStartDate~по \PracticeEndDate.}}\par
 
@@ -102,10 +103,10 @@
 
 \noindent
 \begin{tabularx}{\linewidth}{lXl}
-	Руководитель практики		&	&\\
+	Руководитель практической подготовки		&	&\\
 	от \SPbPUOfficialShort		&	& \Supervisor     \\[\mfloatsep] % если не хватает места, закомментировать
 
-	Консультант практики		&	&\\
+	Консультант практической подготовки		&	&\\
 	от \SPbPUOfficialShort		&	& \ConsultantExtra\\[\mfloatsep]
 %							&	& \ConsultantExtraTwo\\[\mfloatsep]
 	
