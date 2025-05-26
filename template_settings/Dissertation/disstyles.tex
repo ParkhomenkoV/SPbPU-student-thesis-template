@@ -371,7 +371,7 @@
 	\vspace{\curtextsize}
 }
 	\orig@chapter*{\app@ct}%
-	\addcontentsline{toc}{chapter}{\appendixname{} \@arabic\c@chapter. #1}%\app@ct % input to TOC-table
+	\addcontentsline{toc}{chapter}{\appendixname{} \@arabic\c@chapter\space #1}%\app@ct % input to TOC-table
 }
 \let\orig@chapter\chapter
 \g@addto@macro\appendix{\newpage\let\chapter\appendix@chapter\renewcommand*{\afterchapternum}{\par\nobreak\vskip \midchapskip}}
