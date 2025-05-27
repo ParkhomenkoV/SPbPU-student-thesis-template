@@ -49,7 +49,6 @@ Vladimir Parkhomenko
 
 Vladimir Parkhomenko,
 Pavel Drobincev,
-Vladimir Itsycson,
 Alexander Schukin
 
 
@@ -73,9 +72,8 @@ https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template
 - dustalov, Lenchik, tonkonogov за значительный вклад и обсуждения,
 - storkvist, kshmirko, ZoomRmc, tonytonov, Thibak, eximius8, Nizky за полезные правки и замечания,
 - Олегу Одоманову за помощь в настроке пакета biblatex-gost,
-- Ольге Загороднюк за помощь с вычиткой описок и ошибок,
 - Людмиле Шлыковой за помощь в составлении примера-комикса для авторов, оформляющих в Word,
-- Igor Matveev, Natalia Mukhanova, Ludmila Pankova за ценные замечания по подготовке рекомендаций,
+- Igor Matveev, Natalia Mukhanova, Ludmila Pankova, Ольге Загороднюк, Vladimir Itsycson за ценные замечания по подготовке рекомендаций,
 - Игорю Бровцину за помощь в формировании титульника отчета по практике,
 - другим участникам LaTeX сообщества, принимавшим и принимающим участие в разработке Russian-Phd-LaTeX-Dissertation-Template и SPbPU-student-thesis-template.
 
